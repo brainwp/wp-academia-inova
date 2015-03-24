@@ -1,0 +1,318 @@
+/* resets
+--------------------------------------------- */
+html,body,div,span,h1,p,a,img,strong,ul,li,form,label{margin:0;padding:0;font-size:100%;vertical-align:baseline;border:0;outline:0;background:transparent;text-decoration:none}
+body,html{height:100%}
+ol,ul{list-style:none}
+* {outline:0px;border:none;-moz-box-sizing: border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+::-webkit-input-placeholder, ::-moz-placeholder, ::-ms-input-placeholder {color: rgba(0,0,0,0.6)}
+
+/* master styles
+--------------------------------------------- */
+body {
+	background: #bc1c2b url("../img/bg/candy/red.png");
+	-moz-box-shadow: inset 0 0 250px #000000; -webkit-box-shadow: inset 0 0 250px #000000; box-shadow: inset 0 0 250px #000000;
+	font-family: arial, sans-serif;
+}
+
+	#container {
+		width: auto;
+		margin: 0 auto;
+		padding-top: 10%;
+	}
+
+	/* logo widget
+	--------------------------------------------- */
+
+	#logo {
+		margin-bottom:15px;
+	}
+
+		#logo h1 {
+			font-family: 'Lobster Two', cursive;
+			font-size:75px;
+			color:#fff;
+			text-align:center;
+			text-shadow:0 2px 2px rgba(0,0,0,0.3);
+		}
+
+	/* tagline widget
+	--------------------------------------------- */
+
+	#tagline {
+		font-size:24px;
+		color:#fff;
+		text-align:center;
+		margin-bottom:15px;
+	}
+
+	/* progress bar widget
+	--------------------------------------------- */
+
+	#progressbar {
+		width:100%;
+		height:20px;
+		background:rgba(0,0,0,0.1);
+		-moz-box-shadow: 0 2px 2px rgba(0,0,0,0.3); -webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.3); box-shadow: 0 2px 2px rgba(0,0,0,0.3);
+	}
+	
+	#progressbar:before{
+		content:"";
+		width:100%;
+		height:20px;
+		position:absolute;
+		z-index:5;
+		background:url('../img/alert-lines.png') repeat;
+	}
+
+		#progressbar .bar {
+			position:absolute;
+			display:block;
+			width:0px;
+			height:20px;
+			background:url('../img/rainbow.png') no-repeat;
+			background-size:100% 100%;
+			overflow:hidden;
+		}
+
+		#progressbar .label {
+			position:absolute;
+			color:#fff;
+			margin-left:-20px;
+			width:40px;
+			text-align:center;
+			display:block;
+			margin-top:20px;
+			background:none;
+		}
+		
+		#progressbar .label .perc {
+			display:block;
+			background:rgba(0,0,0,0.3);
+			-moz-box-shadow:0 1px 1px rgba(255,255,255,0.2); -webkit-box-shadow:0 1px 1px rgba(255,255,255,0.2); box-shadow:0 1px 1px rgba(255,255,255,0.2);
+			text-decoration:none;
+			border-radius:5px;
+			padding:3px 4px 3px 4px;
+			font-size:13px;
+			font-weight:bold;
+		}
+		
+		#progressbar .label:before {
+			content:"";
+			display:block;
+			width:0;
+			margin:0 auto;
+			border-style:solid;
+			border-width:7px 7px 7px;
+			border-color:transparent transparent rgba(0,0,0,0.3);
+		}
+
+
+	/* subscription widget
+	--------------------------------------------- */
+
+	#subscribe {
+		text-align:center;
+		margin:20px 0;
+	}
+
+		#subscribe input {
+			padding: 8px;
+			font-size: 20px;
+			color: rgba(0,0,0,0.6);
+			border: none;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+			border-right: 1px solid rgba(255, 255, 255, 0.2);
+			background: rgba(0, 0, 0, 0.07);
+			border-radius:8px;
+			box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12); -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12); -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12);
+			transition: background-color 0.2s ease; -webkit-transition: background-color 0.2s ease; -moz-transition: background-color 0.2s ease; -o-transition: background-color 0.2s ease;
+			width:400px;
+		}
+		
+		#subscribe input:focus {
+			color:#000;
+			background:#fff;
+			border-bottom:1px solid transparent;
+			border-right:1px solid transparent;
+			box-shadow:0px 0px 3px rgba(0,0,0,0.3); -moz-box-shadow:0px 0px 3px rgba(0,0,0,0.3); -webkit-box-shadow:0px 0px 3px rgba(0,0,0,0.3);
+		}
+
+		#subscribe button {
+		  background-color: #759ae9;
+		  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #759ae9), color-stop(50%, #376fe0), color-stop(50%, #1a5ad9), color-stop(100%, #2463de));
+		  background-image: -webkit-linear-gradient(top, #759ae9 0%, #376fe0 50%, #1a5ad9 50%, #2463de 100%);
+		  background-image: -moz-linear-gradient(top, #759ae9 0%, #376fe0 50%, #1a5ad9 50%, #2463de 100%);
+		  background-image: -ms-linear-gradient(top, #759ae9 0%, #376fe0 50%, #1a5ad9 50%, #2463de 100%);
+		  background-image: -o-linear-gradient(top, #759ae9 0%, #376fe0 50%, #1a5ad9 50%, #2463de 100%);
+		  background-image: linear-gradient(top, #759ae9 0%, #376fe0 50%, #1a5ad9 50%, #2463de 100%);
+		  border-top: 1px solid #1f58cc;
+		  border-right: 1px solid #1b4db3;
+		  border-bottom: 1px solid #174299;
+		  border-left: 1px solid #1b4db3;
+		  border-radius: 7px;
+		  -webkit-box-shadow: inset 0 0 2px 0 rgba(57, 140, 255, 0.8); -moz-box-shadow: inset 0 0 2px 0 rgba(57, 140, 255, 0.8); box-shadow: inset 0 0 2px 0 rgba(57, 140, 255, 0.8);
+		  color: #fff;
+		  font: bold 16px arial, sans-serif;
+		  padding:9px 9px 10px 9px;
+		  text-shadow: 0 -1px 1px #1a5ad9;
+		  width: 120px;
+		  vertical-align:top;
+		 }
+		 #subscribe button:hover {
+			background-color: #5d89e8;
+			background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #5d89e8), color-stop(50%, #2261e0), color-stop(50%, #044bd9), color-stop(100%, #0d53de));
+			background-image: -webkit-linear-gradient(top, #5d89e8 0%, #2261e0 50%, #044bd9 50%, #0d53de 100%);
+			background-image: -moz-linear-gradient(top, #5d89e8 0%, #2261e0 50%, #044bd9 50%, #0d53de 100%);
+			background-image: -ms-linear-gradient(top, #5d89e8 0%, #2261e0 50%, #044bd9 50%, #0d53de 100%);
+			background-image: -o-linear-gradient(top, #5d89e8 0%, #2261e0 50%, #044bd9 50%, #0d53de 100%);
+			background-image: linear-gradient(top, #5d89e8 0%, #2261e0 50%, #044bd9 50%, #0d53de 100%);
+			cursor: pointer;
+		}
+		#subscribe button:active {
+			border-top: 1px solid #1b4db3;
+			border-right: 1px solid #174299;
+			border-bottom: 1px solid #133780;
+			border-left: 1px solid #174299;
+			-webkit-box-shadow: inset 0 0 5px 2px #1a47a0; -moz-box-shadow: inset 0 0 5px 2px #1a47a0; box-shadow: inset 0 0 5px 2px #1a47a0;
+		}
+	
+	/* tweets widget
+	--------------------------------------------- */
+		
+	.twitter {
+		margin:20px 0;
+		max-width:700px;
+		display:block;
+	}	
+		
+	.tweet li {
+		border-radius:5px;
+		padding:7px;
+		font-size:25px;
+		color:rgba(0,0,0,0.7);
+		font-style:italic;
+		margin:0 auto;
+		max-width:600px;
+		text-align:center;
+	}
+	
+	.tweet li a {
+		color:rgba(255,255,255,0.5);
+		transition:all 0.2s ease-in; -webkit-transition:all 0.2s ease-in; -moz-transition:all 0.2s ease-in; -o-transition:all 0.2s ease-in;
+	}
+	
+		.tweet li a:hover {
+			color:rgba(255,255,255,0.8);
+		}
+	
+	.tweet_time {
+		display:block;
+		text-align:right;
+		padding-right:5%;
+	}
+	
+	.tweet_time a {
+		font-size:12px;
+		color:#de9e9c;
+		margin-top:5px;
+	}
+	
+	/* countdown widget
+	--------------------------------------------- */
+		
+	#countdown {
+		margin:20px 0;
+		text-align:center;
+	}
+		
+	#countdown .countdown_section {
+		display:inline-block;
+		text-align:center;
+		width:100px;
+		font-size:12px;
+		font-weight:bold;
+		color:rgba(255,255,255,0.5);
+		text-transform:uppercase;
+	}
+	
+	#countdown .countdown_amount {
+		background-image: -webkit-linear-gradient(top,#040404 0,#212121 100%); background-image: -moz-linear-gradient(top,#040404 0,#212121 100%); background-image: -ms-linear-gradient(top,#040404 0,#212121 100%); background-image: -o-linear-gradient(top,#040404 0,#212121 100%); background-image: linear-gradient(top,#040404 0,#212121 100%);
+		-webkit-box-shadow:inset 0 1px 1px #3a3b3f, 0 0 10px rgba(0,0,0,.3); -moz-box-shadow:inset 0 1px 1px #3a3b3f, 0 0 10px rgba(0,0,0,.3); box-shadow:inset 0 1px 1px #3a3b3f, 0 0 10px rgba(0,0,0,.3);
+		border:1px solid #1e1f23;
+		color:#dcdcdc;
+		font-size:36px;
+		padding:13px;
+		border-radius:100px;
+		display:block;
+		height:70px;
+		width:70px;
+		margin:10px auto 0 auto;
+	}
+	
+	/* social icons widget
+	--------------------------------------------- */
+
+	#social {
+		margin:20px 0;
+		text-align:center;
+	}
+	
+	#social li {
+		display:inline-block;
+		margin:0;
+	}
+
+		#social a {
+			opacity:.5;
+			display:block;
+			height:64px;
+			width:64px;
+			text-indent:-999999px;
+			transition:all 0.2s ease-in; -webkit-transition:all 0.2s ease-in; -moz-transition:all 0.2s ease-in; -o-transition:all 0.2s ease-in;
+		}
+
+		#social a:hover {
+			opacity:1;
+		}
+
+		#social .facebook a {
+			background: url('../img/social/facebook.png') no-repeat;
+		}
+		#social .twitter a {
+			background: url('../img/social/twitter.png') no-repeat;
+		}
+		#social .google a {
+			background: url('../img/social/google.png') no-repeat;
+		}
+		#social .skype a {
+			background: url('../img/social/skype.png') no-repeat;
+		}
+		#social .vimeo a {
+			background: url('../img/social/vimeo.png') no-repeat;
+		}
+		
+	/* Copyright widget
+	--------------------------------------------- */
+	
+	#footer {
+		position:absolute;
+		bottom:0;
+		left:0;
+		width:100%;
+		padding:8px;
+		color:rgba(255,255,255,0.8);
+		font-size:12px;
+		text-align:center;
+		-moz-box-shadow: inset 0 0 30px rgba(0,0,0,0.3); -webkit-box-shadow: inset 0 0 30px rgba(0,0,0,0.3); box-shadow: inset 0 0 30px rgba(0,0,0,0.3);
+	}
+	
+	#footer a {
+		border-bottom:1px dotted rgba(255,255,255,0.5);
+		color:rgba(255,255,255,0.5);
+		transition:all 0.2s ease-in; -webkit-transition:all 0.2s ease-in; -moz-transition:all 0.2s ease-in; -o-transition:all 0.2s ease-in;
+	}
+	
+		#footer a:hover {
+			color:rgba(255,255,255,0.8);
+			border-bottom:1px dotted transparent;
+		}

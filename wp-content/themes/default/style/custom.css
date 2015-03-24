@@ -1,0 +1,4 @@
+.group_table, .group_table td, .group_table th {
+    border: none;
+    border-width: 0;
+}

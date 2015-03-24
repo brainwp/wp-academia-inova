@@ -1,0 +1,18 @@
+body{margin:0px !important;font-family: 'Oswald', sans-serif; background-color: #FF0E15;	} 
+
+.todo {width: 1080px;background: url("fundo.jpg");background-repeat: no-repeat;margin: 0 auto;padding-top: 940px;padding-bottom: 50px;}
+ul.dias {list-style: none;padding: 10px;width: 180px;height: 340px;float: left;margin: 0px 0px;border: 1px solid #fff;}
+.first{margin-left: 40px !important;}
+ul.dias li {color: #fff;font-weight: 100;text-align: left;}
+ul.dias li span {display: inline;float: right;}
+.calendario {height: 340px;}
+li.titulo {
+text-align: center !important;
+display: block;
+font-size: 22px;
+font-weight: bolder !Important;
+border-bottom: 2px solid #fff;
+width: 200px;
+padding-bottom: 10px;
+margin: 0px 0px 0px -10px;
+}

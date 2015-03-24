@@ -1,0 +1,150 @@
+.gymbase_hidden
+{
+	display: none;
+}
+/* --- Menu icons --- */
+#adminmenu #menu-posts-gymbase_weekdays .wp-menu-image,
+#adminmenu #menu-posts-classes .wp-menu-image
+{
+	background-repeat: no-repeat;
+}
+#menu-posts-gymbase_weekdays .wp-menu-image,
+#menu-posts-classes .wp-menu-image,
+#menu-posts-trainers .wp-menu-image,
+#menu-posts-gymbase_gallery .wp-menu-image
+{
+	background-image: url("../images/icons/map.png");
+}
+#adminmenu #menu-posts-gymbase_weekdays .wp-menu-image
+{
+	background-position: -29px -33px;
+}
+#adminmenu #menu-posts-gymbase_weekdays:hover .wp-menu-image, #adminmenu #menu-posts-gymbase_weekdays.wp-has-current-submenu .wp-menu-image
+{
+	background-position: -29px -1px;
+}
+#adminmenu #menu-posts-classes .wp-menu-image
+{
+	background-position: 1px -33px;
+}
+#adminmenu #menu-posts-classes:hover .wp-menu-image, #adminmenu #menu-posts-classes.wp-has-current-submenu .wp-menu-image
+{
+	background-position: 1px -1px;
+}
+#adminmenu #menu-posts-trainers .wp-menu-image
+{
+	background-position: -59px -33px;
+}
+#adminmenu #menu-posts-trainers:hover .wp-menu-image, #adminmenu #menu-posts-trainers.wp-has-current-submenu .wp-menu-image
+{
+	background-position: -59px -1px;
+}
+#adminmenu #menu-posts-gymbase_gallery .wp-menu-image
+{
+	background-position: -89px -33px;
+}
+#adminmenu #menu-posts-gymbase_gallery:hover .wp-menu-image, #adminmenu #menu-posts-gymbase_gallery.wp-has-current-submenu .wp-menu-image
+{
+	background-position: -89px -1px;
+}
+.icon32-posts-gymbase_weekdays
+{
+	background: url("../images/icons/calendar.png") 0 0 no-repeat !important;
+}
+.icon32-posts-classes
+{
+	background: url("../images/icons/task.png") 0 0 no-repeat !important;
+}
+.icon32-posts-trainers
+{
+	background: url("../images/icons/briefcase.png") 0 0 no-repeat !important;
+}
+.icon32-posts-gymbase_gallery
+{
+	background: url("../images/icons/image.png") 0 0 no-repeat !important;
+}
+/* --- Tabs --- */
+#gymbase-options-tabs
+{
+	margin-top: 25px;
+}
+#gymbase-options-tabs .ui-tabs-nav
+{
+	margin: 0px;
+}
+#gymbase-options-tabs .ui-tabs-nav .nav-tab
+{
+	margin-bottom: 0px;
+	padding: 0px;
+	
+}
+#gymbase-options-tabs .ui-tabs-nav .nav-tab a
+{
+	display: block;
+	text-decoration: none;
+	padding: 4px 14px 6px;
+}
+#gymbase-options-tabs .ui-tabs-panel
+{
+	width: 750px;
+	padding: 5px;
+	border: 1px solid #CCCCCC;
+	-webkit-border-bottom-left-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	-moz-border-radius-bottomleft: 3px;
+	-moz-border-radius-bottomright: 3px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+#gymbase-options-tabs .ui-tabs-panel .form-table
+{
+	margin-top: 0px;
+}
+#gymbase-options-tabs .ui-tabs-panel p
+{
+	margin-left: 5px;
+}
+#gymbase-options-tabs .ui-tabs-selected
+{
+	border-color: #CCCCCC;
+	font-weight: bold;
+}
+#gymbase-options-tabs .button
+{
+	float: right;
+	margin-right: 180px;
+}
+#gymbase-options-tabs #logo_url_upload_button
+{
+	margin-right: 125px;
+}
+/* --- classes hours list --- */
+#class_hours_list
+{
+	background-color: #FFFFFF;
+    border: 1px solid #DFDFDF;
+	padding: 5px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+#class_hours_list li
+{
+	margin-top: 5px;
+	margin-bottom: 0;
+}
+#class_hours_list li:first-child
+{
+	margin-top: 0;
+}
+#class_hours_list .delete_button
+{
+	float: right;
+	cursor: pointer;
+	margin-top: 3px;
+}
+/* --- widgets --- */
+.widget-inside .regular-text.color
+{
+	width: 60px;
+}

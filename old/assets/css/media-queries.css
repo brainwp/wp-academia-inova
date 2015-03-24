@@ -1,0 +1,43 @@
+/************************************************************************************
+smaller than 700
+*************************************************************************************/
+@media screen and (max-width: 700px) {
+
+	body {
+		-moz-box-shadow:none; -webkit-box-shadow:none; box-shadow:none;
+	}
+	
+	#container {
+		padding-top:25px;
+	}
+	
+	#footer {
+		position:static !important;
+		margin-top:15px;
+	}
+	
+	#subscribe input,
+	#subscribe button {
+		width:auto;
+	}
+
+}
+
+/************************************************************************************
+smaller than 480
+*************************************************************************************/
+@media screen and (max-width: 480px) {
+
+	#logo h1 {
+		font-size:40px;
+	}
+
+	#tagline {
+		font-size:16px;
+	}
+
+	#subscribe input {
+		width:100px;
+	}
+
+}

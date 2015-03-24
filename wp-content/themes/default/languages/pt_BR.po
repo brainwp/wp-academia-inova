@@ -1,0 +1,1682 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Default Academia Inova v1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2012-12-21 16:21-0300\n"
+"Last-Translator: Rafael Funchal <rafaelfunchal@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ default
+#: comments.php:72
+#, php-format
+msgid " %1$s at %2$s"
+msgstr " %1$s as %2$s"
+
+# @ default
+#: widgets/widget-classes.php:101
+msgid "ASC"
+msgstr "ASC"
+
+# @ default
+#: post-type-classes.php:380
+msgid "About"
+msgstr "Sobre"
+
+# @ default
+#: theme-options.php:1164
+msgid "Accordion item border active color"
+msgstr "Cor da borda selecionada da sanfona"
+
+# @ default
+#: theme-options.php:1146
+msgid "Accordion item border color"
+msgstr "Cor da borda do item selecionado da sanfona"
+
+# @ default
+#: theme-options.php:1155
+msgid "Accordion item border hover color"
+msgstr "Cor da borda do item sa sanfona ao passar o mouse"
+
+# @ default
+#: theme-options.php:975
+msgid "Active border color"
+msgstr "Cor da borda ativa"
+
+# @ default
+#: theme-options.php:967
+msgid "Active color"
+msgstr "Cor do item ativado"
+
+# @ default
+#: post-type-classes.php:194
+msgid "Add"
+msgstr "Adicionar"
+
+# @ default
+#: post-type-classes.php:12
+msgid "Add New Class"
+msgstr "Adicionar nova aula"
+
+# @ default
+#: post-type-weekdays.php:10
+msgid "Add New Day"
+msgstr "Adicionar novo dia"
+
+# @ default
+#: post-type-gallery.php:10
+msgid "Add New Gallery Item"
+msgstr "Adicionar novo item na galeria"
+
+# @ default
+#: post-type-trainers.php:10
+msgid "Add New Trainer"
+msgstr "Adicionar novo instrutor"
+
+# @ default
+#: theme-options.php:435
+msgid "Add slider image"
+msgstr "Adicionar imagem ao slider"
+
+# @ default
+#: theme-options.php:563
+msgid "Admin SMTP config (optional)"
+msgstr "Configuração do SMTP (opcional)"
+
+# @ default
+#: theme-options.php:535
+msgid "Admin email config"
+msgstr "Configuração do email administrativo"
+
+# @ default
+#: post-type-classes.php:15 post-type-gallery.php:266
+#: shortcodes/timetable-bkp.php:17 shortcodes/timetable-bkp.php:21
+#: shortcodes/timetable-bkp.php:22 shortcodes/timetable.php:17
+#: shortcodes/timetable.php:21 shortcodes/timetable.php:22
+msgid "All Classes"
+msgstr "Todas as aulas"
+
+# @ default
+#: post-type-gallery.php:13
+msgid "All Gallery Items"
+msgstr "Todas as galerias"
+
+# @ default
+#: post-type-trainers.php:13
+msgid "All Trainers"
+msgstr "Todos os instrutores"
+
+# @ default
+#: post-type-weekdays.php:13
+msgid "All Weekdays"
+msgstr "Todos os dias da semana"
+
+# @ default
+#: shortcodes/accordion.php:37
+msgid "Attribute id is required. For example [accordion_item id='item-1']"
+msgstr "Obrigatório atribuir uma id. Por exemplo [accordion_item id='item-1']"
+
+# @ default
+#: shortcodes/tabs.php:39
+msgid "Attribute id is required. For example [tab id='tab-1']"
+msgstr "Obrigatório atribuir uma id. Por exemplo [tab id='tab-1']"
+
+# @ default
+#: shortcodes/tabs.php:58
+msgid "Attribute id is required. For example [tab_content id='tab-1']"
+msgstr "Obrigatório atribuir uma id. Por exemplo [tab_content id='tab-1']"
+
+# @ default
+#: theme-options.php:440
+msgid "Autoplay"
+msgstr "Play automático"
+
+# @ default
+#: widgets/widget-upcoming-classes.php:158
+msgid "Background color"
+msgstr "Cor do fundo"
+
+# @ default
+#: meta-box.php:54
+msgid "Blog categories"
+msgstr "Categorias do blog"
+
+# @ default
+#: meta-box.php:68
+msgid "Blog order"
+msgstr "Ordem do blog"
+
+# @ default
+#: functions.php:128
+msgid "Blog post thumbnail"
+msgstr "Miniaturas dos posts do blog"
+
+# @ default
+#: theme-options.php:722
+msgid "Body background color"
+msgstr "Cor de fundo do body"
+
+# @ default
+#: theme-options.php:888
+msgid "Body button border color"
+msgstr "Cor da borda do botão do body"
+
+# @ default
+#: theme-options.php:896
+msgid "Body button border hover color"
+msgstr "Cor da borda do botão do body ao passar o mouse"
+
+# @ default
+#: theme-options.php:872
+msgid "Body button text color"
+msgstr "Cor do texto do botão do body"
+
+# @ default
+#: theme-options.php:880
+msgid "Body button text hover color"
+msgstr "Cor do texto do botão do body ao passar o mouse"
+
+# @ default
+#: theme-options.php:776
+msgid "Body headers border color"
+msgstr "Cor da borda dos cabeçalhos do body"
+
+# @ default
+#: theme-options.php:768
+msgid "Body headers color"
+msgstr "Cor dos cabeçalhos do body"
+
+# @ default
+#: theme-options.php:793
+msgid "Body text 2 color"
+msgstr "Cor 2 do texto do body"
+
+# @ default
+#: theme-options.php:785
+msgid "Body text color"
+msgstr "Cor do texto do body"
+
+# @ default
+#: theme-options.php:1137
+msgid "Bread crumb border color"
+msgstr "Cor da borda do bread crumb"
+
+# @ default
+#: theme-options.php:402
+msgid "Browse"
+msgstr "Pesquisar"
+
+# @ default
+#: widgets/widget-home-box.php:177
+msgid "Button label"
+msgstr "Botão do label"
+
+# @ default
+#: widgets/widget-home-box.php:173
+msgid "Button url"
+msgstr "Url do botão"
+
+# @ default
+#: theme-options.php:866
+msgid "Buttons"
+msgstr "Botões"
+
+# @ default
+#: theme-options.php:343 theme-options.php:352 theme-options.php:361
+msgid "Can be text or any html"
+msgstr "Pode ser um texto ou html"
+
+# @ default
+#: comments-form.php:37
+msgid "Cancel reply"
+msgstr "Cancelar resposta"
+
+# @ default
+#: post-type-gallery.php:151
+msgid "Categories"
+msgstr "Categorias"
+
+# @ default
+#: post-type-classes.php:114
+msgid "Class hours"
+msgstr "Horários das aulas"
+
+# @ default
+#: post-type-classes.php:21
+msgid "Classes"
+msgstr "Aulas"
+
+# @ default
+#: widgets/widget-classes.php:12
+msgid "Classes Accordion"
+msgstr "Sanfona das aulas"
+
+# @ default
+#: widgets/widget-classes.php:106
+msgid "Classes Page"
+msgstr "Página das aulas"
+
+# @ default
+#: shortcodes/timetable-bkp.php:221 shortcodes/timetable.php:221
+msgid "Click on the class name to get additional info"
+msgstr "Click no nome da aula para mais informações"
+
+# @ default
+#: widgets/widget-footer-box.php:105 widgets/widget-home-box.php:136
+msgid "Color"
+msgstr "Cor"
+
+# @ default
+#: theme-options.php:295
+msgid "Colors"
+msgstr "Cores"
+
+# @ default
+#: comments.php:12 shortcodes/latest_news.php:32
+msgid "Comment"
+msgstr "Comentário"
+
+# @ default
+#: theme-options.php:1198
+msgid "Comment reply button color"
+msgstr "Cor do botão de resposta do comentário"
+
+# @ default
+#: comments.php:12 search.php:49 search.php:50 shortcodes/latest_news.php:32
+#: single.php:42 single.php:43 template-blog.php:60 template-blog.php:61
+msgid "Comments"
+msgstr "Comentários"
+
+# @ default
+#: theme-options.php:290 theme-options.php:652
+msgid "Contact Details"
+msgstr "Informações de contato"
+
+# @ default
+#: widgets/widget-contact-details.php:13
+msgid "Contact Details Box"
+msgstr "Box das informações de contato"
+
+# @ default
+#: theme-options.php:285
+msgid "Contact Form"
+msgstr "Formulário de contato"
+
+# @ default
+#: theme-options.php:1206
+msgid "Contact details box background color"
+msgstr "Cor de fundo do box de informações de contato"
+
+# @ default
+#: theme-options.php:690
+msgid "Contact email"
+msgstr "Email de contato"
+
+# @ default
+#: theme-options.php:682
+msgid "Contact fax"
+msgstr "Fax"
+
+# @ default
+#: theme-options.php:658
+msgid "Contact logo first part text"
+msgstr "Primeira parte do texto do logo"
+
+# @ default
+#: theme-options.php:666
+msgid "Contact logo second part text"
+msgstr "Segunda pate do texto do logo"
+
+# @ default
+#: theme-options.php:674
+msgid "Contact phone"
+msgstr "Telefone de contato"
+
+# @ default
+#: widgets/widget-home-box.php:165
+msgid "Content"
+msgstr "Conteúdo"
+
+# @ default
+#: widgets/widget-home-box.php:169
+msgid "Content text color"
+msgstr "Cor do texto do conteúdo"
+
+# @ default
+#: theme-options.php:1173
+msgid "Copyright area border color"
+msgstr "Cor da borda da área de direitos autorais"
+
+# @ default
+#: widgets/widget-scrolling-most-commented.php:97
+#: widgets/widget-scrolling-most-viewed.php:96
+#: widgets/widget-scrolling-recent-posts.php:89 widgets/widget-twitter.php:115
+#: widgets/widget-upcoming-classes.php:154
+msgid "Count"
+msgstr "Contar"
+
+# @ default
+#: widgets/widget-classes.php:102
+msgid "DESC"
+msgstr "DESC"
+
+# @ default
+#: post-type-gallery.php:152 post-type-weekdays.php:42
+msgid "Date"
+msgstr "Data"
+
+# @ default
+#: theme-options.php:1088
+msgid "Date box color"
+msgstr "Cor do box de data"
+
+# @ default
+#: post-type-classes.php:165
+msgid "Day"
+msgstr "Dia"
+
+# @ default
+#: theme-options.php:1234 theme-options.php:1269
+msgid "Default"
+msgstr "Padrão"
+
+# @ default
+#: post-type-classes.php:335 widgets/widget-classes.php:62
+msgid "Details"
+msgstr "Detalhes"
+
+# @ default
+#: post-type-classes.php:13
+msgid "Edit Class"
+msgstr "Editar aula"
+
+# @ default
+#: post-type-weekdays.php:11
+msgid "Edit Day"
+msgstr "Editar dia"
+
+# @ default
+#: post-type-gallery.php:11
+msgid "Edit Gallery Item"
+msgstr "Editar item da galeria"
+
+# @ default
+#: post-type-trainers.php:11
+msgid "Edit Trainer"
+msgstr "Editar instrutor"
+
+# @ default
+#: theme-options.php:459
+msgid "Effect:"
+msgstr "Efeito:"
+
+# @ default
+#: theme-options.php:549
+msgid "Email"
+msgstr "Email"
+
+# @ default
+#: theme-options.php:618
+msgid "Email config"
+msgstr "Configurações do email"
+
+# @ default
+#: theme-options.php:623
+msgid "Email subject"
+msgstr "Assunto do email"
+
+# @ default
+#: post-type-classes.php:185
+msgid "End hour"
+msgstr "Término"
+
+# @ default
+#: 404.php:10
+msgid "Error 404 - Not Found"
+msgstr "Erro 404 - Nada encontrado"
+
+# @ default
+#: comments-functions.php:62
+msgid "Error while adding comment"
+msgstr "Erro adicionando comentário"
+
+# @ default
+#: post-type-gallery.php:150
+msgid "External URL"
+msgstr "Url externo"
+
+# @ default
+#: post-type-gallery.php:92
+msgid "External URL (optional)"
+msgstr "Url externo (opcional)"
+
+# @ default
+#: post-type-gallery.php:100
+msgid "External URL target"
+msgstr "Target do url externo"
+
+# @ default
+#: theme-options.php:300 theme-options.php:1224
+msgid "Fonts"
+msgstr "Fontes"
+
+# @ default
+#: widgets/widget-footer-box.php:13
+msgid "Footer Box"
+msgstr "Box do rodapé"
+
+# @ default
+#: theme-options.php:730
+msgid "Footer background color"
+msgstr "Cor de fundo do rodapé"
+
+# @ default
+#: theme-options.php:920
+msgid "Footer button border color"
+msgstr "Cor da borda do botão do rodapé"
+
+# @ default
+#: theme-options.php:928
+msgid "Footer button border hover color"
+msgstr "Cor da borda do botão do rodapé ao passar o mouse"
+
+# @ default
+#: theme-options.php:904
+msgid "Footer button text color"
+msgstr "Cor do texto do botão do rodapé"
+
+# @ default
+#: theme-options.php:912
+msgid "Footer button text hover color"
+msgstr "Cor do texto do botão do rodapé ao passar o mouse"
+
+# @ default
+#: theme-options.php:809
+msgid "Footer headers border color"
+msgstr "Cor da borda dos cabeçalhos do rodapé"
+
+# @ default
+#: theme-options.php:801
+msgid "Footer headers color"
+msgstr "Cor dos cabeçalhos do rodapé"
+
+# @ default
+#: theme-options.php:818
+msgid "Footer text color"
+msgstr "Cor do texto do rodapé"
+
+# @ default
+#: theme-options.php:339
+msgid "Footer text left"
+msgstr "Texto esquerdo do rodapé"
+
+# @ default
+#: theme-options.php:348
+msgid "Footer text right"
+msgstr "Texto direito do rodapé"
+
+# @ default
+#: theme-options.php:1072
+msgid "Form field active border color"
+msgstr "Cor da borda do campo ativo do formulário"
+
+# @ default
+#: theme-options.php:1063
+msgid "Form field border color"
+msgstr "Cor da borda do campo do formulário"
+
+# @ default
+#: theme-options.php:1055
+msgid "Form field text color"
+msgstr "Cor do texto do campo do formulário"
+
+# @ default
+#: theme-options.php:1047
+msgid "Form hint color"
+msgstr "Cor do aviso do formulário"
+
+# @ default
+#: theme-options.php:1041
+msgid "Forms"
+msgstr "Formulários"
+
+# @ default
+#: post-type-gallery.php:19
+msgid "Gallery"
+msgstr "Galeria"
+
+# @ default
+#: theme-options.php:1096
+msgid "Gallery box color"
+msgstr "Cor do box da galeria"
+
+# @ default
+#: theme-options.php:1104
+msgid "Gallery box hover color"
+msgstr "Cor do box da galeria ao passar o mouse"
+
+# @ default
+#: theme-options.php:1128
+msgid "Gallery details box border color"
+msgstr "Cor da borda do box da galeria"
+
+# @ default
+#: functions.php:129
+msgid "Gallery image"
+msgstr "Imagem da galeria"
+
+# @ default
+#: functions.php:130
+msgid "Gallery thumbnail"
+msgstr "Miniatura da galeria"
+
+# @ default
+#: theme-options.php:708
+msgid "General"
+msgstr "Geral"
+
+# @ default
+#: theme-options.php:714
+msgid "Header background color"
+msgstr "Cor de fundo do cabeçalho"
+
+# @ default
+#: theme-options.php:1230
+msgid "Header font"
+msgstr "Fonte do cabeçalho"
+
+# @ default
+#: page.php:20 page.php:21 search.php:20 search.php:21 single.php:21
+#: single.php:22 template-blog.php:23 template-blog.php:24
+#: template-full-width.php:23 template-full-width.php:24
+msgid "Home"
+msgstr "Home"
+
+# @ default
+#: widgets/widget-home-box.php:13
+msgid "Home Box"
+msgstr "Box da home"
+
+# @ default
+#: theme-options.php:357
+msgid "Home page top hint"
+msgstr "Aviso superior da home"
+
+# @ default
+#: theme-options.php:569
+msgid "Host"
+msgstr "Host"
+
+# @ default
+#: theme-options.php:992
+msgid "Hover border color"
+msgstr "Cor da borda ao passar o mouse"
+
+# @ default
+#: theme-options.php:984
+msgid "Hover color"
+msgstr "Cor ao passar o mouse"
+
+# @ default
+#: widgets/widget-footer-box.php:115 widgets/widget-home-box.php:147
+msgid "Icon"
+msgstr "Ícone"
+
+# @ default
+#: widgets/widget-contact-details.php:163
+msgid "Icon type"
+msgstr "Tipo de ícone"
+
+# @ default
+#: post-type-gallery.php:84
+msgid "Ifame URL (optional)"
+msgstr "Url do iframe (opcional)"
+
+# @ default
+#: post-type-gallery.php:149
+msgid "Iframe URL"
+msgstr "Url do iframe"
+
+# @ default
+#: theme-options.php:318
+msgid "Insert logo"
+msgstr "Insira o logo"
+
+# @ default
+#: widgets/widget-upcoming-classes.php:166
+msgid "Item border color"
+msgstr "Cor da borda do item"
+
+# @ default
+#: comments-form.php:8
+msgid "Leave a reply"
+msgstr "Deixe uma resposta"
+
+# @ default
+#: theme-options.php:958
+msgid "Link border color"
+msgstr "Cor da borda do link"
+
+# @ default
+#: theme-options.php:738 theme-options.php:950
+msgid "Link color"
+msgstr "Cor do link"
+
+# @ default
+#: theme-options.php:746
+msgid "Link hover color"
+msgstr "Cor do link ao passar o mouse"
+
+# @ default
+#: widgets/widget-twitter.php:111
+msgid "Login"
+msgstr "Login"
+
+# @ default
+#: theme-options.php:323
+msgid "Logo first part text"
+msgstr "Primeira parte do texto do logo"
+
+# @ default
+#: theme-options.php:842
+msgid "Logo first part text color"
+msgstr "Cor da primeira parte do texto do logo"
+
+# @ default
+#: theme-options.php:331
+msgid "Logo second part text"
+msgstr "Segunda parte do texto do logo"
+
+# @ default
+#: theme-options.php:850
+msgid "Logo second part text color"
+msgstr "Cor da segunda parte do texto do logo"
+
+# @ default
+#: theme-options.php:314
+msgid "Logo url"
+msgstr "Url do logo"
+
+# @ default
+#: theme-options.php:275 theme-options.php:309
+msgid "Main"
+msgstr "Principal"
+
+# @ default
+#: theme-options.php:944
+msgid "Menu"
+msgstr "Menu"
+
+# @ default
+#: comments-form.php:34 comments-functions.php:9 comments-functions.php:72
+#: contact_form.php:21 contact_form.php:41 contact_form.php:96
+msgid "Message"
+msgstr "Mensagem"
+
+# @ default
+#: theme-options.php:1082
+msgid "Miscellaneous"
+msgstr "Diversos"
+
+# @ default
+#: search.php:88 shortcodes/latest_news.php:59 template-blog.php:99
+msgid "More"
+msgstr "Mais"
+
+# @ default
+#: theme-options.php:541
+msgid "Name"
+msgstr "Nome"
+
+# @ default
+#: post-type-classes.php:14
+msgid "New Class"
+msgstr "Nova aula"
+
+# @ default
+#: post-type-weekdays.php:12
+msgid "New Day"
+msgstr "Novo dia"
+
+# @ default
+#: post-type-gallery.php:12
+msgid "New Gallery Item"
+msgstr "Novo item da galeria"
+
+# @ default
+#: post-type-trainers.php:12
+msgid "New Trainer"
+msgstr "Novo instrutor"
+
+# @ default
+#: post-type-classes.php:18
+msgid "No classes found"
+msgstr "Nenhuma aula encontrada"
+
+# @ default
+#: post-type-classes.php:19
+msgid "No classes found in Trash"
+msgstr "Nenhuma aula na lixeira"
+
+# @ default
+#: post-type-gallery.php:16
+msgid "No gallery items found"
+msgstr "Nenhuma galeria encontrada"
+
+# @ default
+#: post-type-gallery.php:17
+msgid "No gallery items found in Trash"
+msgstr "Nenhuma galeria na lixeira"
+
+# @ default
+#: search.php:98
+msgid "No results found."
+msgstr "Nenhum resultado encontrado."
+
+# @ default
+#: post-type-trainers.php:16
+msgid "No trainers found"
+msgstr "Nenhum instrutor encontrado"
+
+# @ default
+#: post-type-trainers.php:17
+msgid "No trainers found in Trash"
+msgstr "Nenhum instrutor na lixeira"
+
+# @ default
+#: post-type-weekdays.php:16
+msgid "No weekdays found"
+msgstr "Nenhum dia da semana encontrado"
+
+# @ default
+#: post-type-weekdays.php:17
+msgid "No weekdays found in Trash"
+msgstr "Nenhum dia da semana na lixeira"
+
+# @ default
+#: meta-box.php:8 meta-box.php:16 post-type-classes.php:121
+#: post-type-gallery.php:43 post-type-trainers.php:41
+msgid "Options"
+msgstr "Opções"
+
+# @ default
+#: theme-options.php:260
+msgid "Options saved"
+msgstr "Opções salvas"
+
+# @ default
+#: widgets/widget-classes.php:99
+msgid "Order"
+msgstr "Ordem"
+
+# @ default
+#: theme-options.php:585
+msgid "Password"
+msgstr "Senha"
+
+# @ default
+#: comments-functions.php:71 contact_form.php:95
+msgid "Please enter valid e-mail"
+msgstr "Por favor, informe um e-mail válido"
+
+# @ default
+#: comments-functions.php:73 contact_form.php:97
+msgid "Please enter your message"
+msgstr "Por favor, digite sua mensagem"
+
+# @ default
+#: comments-functions.php:69 contact_form.php:93
+msgid "Please enter your name"
+msgstr "Por favor, informe seu nome"
+
+# @ default
+#: theme-options.php:593
+msgid "Port"
+msgstr "Porta"
+
+# @ default
+#: search.php:73 shortcodes/latest_news.php:45 single.php:68
+#: template-blog.php:84
+msgid "Posted by"
+msgstr "Publicado por"
+
+# @ default
+#: comments.php:84 comments.php:85
+msgid "Reply"
+msgstr "Responda"
+
+# @ default
+#: theme-options.php:366
+msgid "Responsive"
+msgstr "Responsivo"
+
+# @ default
+#: theme-options.php:601
+msgid "SMTP Secure"
+msgstr "Segurança do SMTP"
+
+# @ default
+#: theme-options.php:1306
+msgid "Save All Options"
+msgstr "Salvar todas as opções"
+
+# @ default
+#: theme-options.php:755 theme-options.php:859 theme-options.php:937
+#: theme-options.php:1034 theme-options.php:1215
+msgid "Save Colors Options"
+msgstr "Salvar opções de cores"
+
+# @ default
+#: theme-options.php:699
+msgid "Save Contact Details Options"
+msgstr "Salvar opções de informações de contato"
+
+# @ default
+#: theme-options.php:643
+msgid "Save Contact Form Options"
+msgstr "Salvar opções de formulário de contato"
+
+# @ default
+#: theme-options.php:1301
+msgid "Save Fonts Options"
+msgstr "Salvar opções de fontes"
+
+# @ default
+#: theme-options.php:378
+msgid "Save Main Options"
+msgstr "Salvar opções principais"
+
+# @ default
+#: theme-options.php:526
+msgid "Save Slider Options"
+msgstr "Salvar opções do slider"
+
+# @ default
+#: widgets/widget-scrolling-most-commented.php:12
+msgid "Scrolling Most Commented Posts"
+msgstr "Rotacionar posts mais comentados"
+
+# @ default
+#: widgets/widget-scrolling-most-viewed.php:12
+msgid "Scrolling Most Viewed Posts"
+msgstr "Rotacionar posts mais visualizados"
+
+# @ default
+#: widgets/widget-scrolling-recent-posts.php:12
+msgid "Scrolling Recent Posts"
+msgstr "Rotacionar posts recentes"
+
+# @ default
+#: post-type-classes.php:17
+msgid "Search Class"
+msgstr "Pesquisar aulas"
+
+# @ default
+#: post-type-gallery.php:15
+msgid "Search Gallery Item"
+msgstr "Pesquisar galerias"
+
+# @ default
+#: post-type-trainers.php:15
+msgid "Search Trainer"
+msgstr "Pesquisar instrutores"
+
+# @ default
+#: post-type-weekdays.php:15
+msgid "Search Weekdays"
+msgstr "Pesquisar dias da semana"
+
+# @ default
+#: search.php:8 search.php:28
+msgid "Search results"
+msgstr "Resultados da busca"
+
+# @ default
+#: comments-form.php:36 contact_form.php:23
+msgid "Send"
+msgstr "Enviar"
+
+# @ default
+#: theme-options.php:834
+msgid "Sentence color"
+msgstr "Cor da sentença"
+
+# @ default
+#: shortcodes/shortcodes.php:87
+msgid "Show all"
+msgstr "Exibir todos"
+
+# @ default
+#: theme-options.php:451
+msgid "Slide interval:"
+msgstr "Internado do slide:"
+
+# @ default
+#: theme-options.php:280 theme-options.php:386
+msgid "Slider"
+msgstr "Slider"
+
+# @ default
+#: theme-options.php:423
+msgid "Slider image link"
+msgstr "Link da imagem do slider"
+
+# @ default
+#: theme-options.php:415
+msgid "Slider image subtitle"
+msgstr "Subtítulo da imagem do slider"
+
+# @ default
+#: theme-options.php:407
+msgid "Slider image title"
+msgstr "Título da imagem do slider"
+
+# @ default
+#: theme-options.php:398
+msgid "Slider image url"
+msgstr "Url da imagem do slider"
+
+# @ default
+#: functions.php:131
+msgid "Small thumbnail"
+msgstr "Miniatura menor"
+
+# @ default
+#: 404.php:11
+msgid "Sorry, but you are looking for something that isn't here"
+msgstr "Desculpe-nos, mas não conseguimos encontrar nenhum texto."
+
+# @ default
+#: contact_form.php:86
+msgid "Sorry, we can't send this message"
+msgstr "Desculpe-nos, não foi possível enviar essa mensagem."
+
+# @ default
+#: post-type-classes.php:176
+msgid "Start hour"
+msgstr "Início"
+
+# @ default
+#: theme-options.php:1265
+msgid "Subheader font"
+msgstr "Fonte do subcabeçalho"
+
+# @ default
+#: theme-options.php:1001
+msgid "Submenu background color"
+msgstr "Cor de fundo do submenu"
+
+# @ default
+#: theme-options.php:1009
+msgid "Submenu hover background color"
+msgstr "Cor de fundo do submenu ao passar o mouse"
+
+# @ default
+#: theme-options.php:1025
+msgid "Submenu hover link color"
+msgstr "Cor do link do submenu ao passar o mouse"
+
+# @ default
+#: theme-options.php:1017
+msgid "Submenu link color"
+msgstr "Cor do link do submenu"
+
+# @ default
+#: meta-box.php:43 meta-box.php:94 post-type-classes.php:216
+#: post-type-gallery.php:67 post-type-trainers.php:62
+#: widgets/widget-footer-box.php:97 widgets/widget-home-box.php:128
+#: widgets/widget-upcoming-classes.php:146
+msgid "Subtitle"
+msgstr "Subtítulo"
+
+# @ default
+#: widgets/widget-footer-box.php:101 widgets/widget-home-box.php:132
+#: widgets/widget-upcoming-classes.php:150
+msgid "Subtitle color"
+msgstr "Cor do subtítulo"
+
+# @ default
+#: theme-options.php:631
+msgid "Template"
+msgstr "Modelo"
+
+# @ default
+#: theme-options.php:762
+msgid "Text"
+msgstr "Texto"
+
+# @ default
+#: widgets/widget-upcoming-classes.php:162
+msgid "Text color"
+msgstr "Cor do texto"
+
+# @ default
+#: contact_form.php:82
+msgid "Thank you for contact us"
+msgstr "Obrigado por entrar em contato"
+
+# @ default
+#: search.php:9
+msgid "The results for phrase:"
+msgstr "Resultados para:"
+
+# @ default
+#: theme-options.php:826
+msgid "Timeago label color"
+msgstr "Cor da label de horas atrás"
+
+# @ default
+#: post-type-classes.php:336 post-type-classes.php:390
+#: widgets/widget-classes.php:63
+msgid "Timetable"
+msgstr "Horários"
+
+# @ default
+#: widgets/widget-classes.php:128
+msgid "Timetable Page"
+msgstr "Página de horários"
+
+# @ default
+#: theme-options.php:1112
+msgid "Timetable box color"
+msgstr "Cor do box de horários"
+
+# @ default
+#: theme-options.php:1120
+msgid "Timetable box hover color"
+msgstr "Cor do box de horários ao passar o mouse"
+
+# @ default
+#: widgets/widget-classes.php:95 widgets/widget-contact-details.php:131
+#: widgets/widget-footer-box.php:85 widgets/widget-home-box.php:120
+#: widgets/widget-scrolling-most-commented.php:93
+#: widgets/widget-scrolling-most-viewed.php:92
+#: widgets/widget-scrolling-recent-posts.php:85 widgets/widget-twitter.php:107
+#: widgets/widget-upcoming-classes.php:138
+msgid "Title"
+msgstr "Título"
+
+# @ default
+#: widgets/widget-footer-box.php:89 widgets/widget-home-box.php:124
+#: widgets/widget-upcoming-classes.php:142
+msgid "Title color"
+msgstr "Cor do título"
+
+# @ default
+#: theme-options.php:1182
+msgid "Top hint background color"
+msgstr "Cor de fundo do aviso superior"
+
+# @ default
+#: theme-options.php:1190
+msgid "Top hint text color"
+msgstr "Cor do texto do aviso superior"
+
+# @ default
+#: post-type-classes.php:228 post-type-classes.php:385
+#: post-type-trainers.php:19
+msgid "Trainers"
+msgstr "Instrutores"
+
+# @ default
+#: theme-options.php:517
+msgid "Transition speed:"
+msgstr "Velocidade de transição:"
+
+# @ default
+#: theme-options.php:475
+msgid "Transition:"
+msgstr "Transição:"
+
+# @ default
+#: widgets/widget-twitter.php:12
+msgid "Twitter Feed"
+msgstr "Twitter"
+
+# @ default
+#: widgets/widget-home-box.php:158
+msgid "Type"
+msgstr "Tipo"
+
+# @ default
+#: widgets/widget-upcoming-classes.php:12
+msgid "Upcoming Classes"
+msgstr "Próximas aulas"
+
+# @ default
+#: widgets/widget-footer-box.php:93
+msgid "Url"
+msgstr "Url"
+
+# @ default
+#: theme-options.php:577
+msgid "Username"
+msgstr "Usuário"
+
+# @ default
+#: post-type-gallery.php:148
+msgid "Video URL"
+msgstr "Url do vídeo"
+
+# @ default
+#: post-type-gallery.php:75
+msgid "Video URL (optional)"
+msgstr "Url do vídeo (opcional)"
+
+# @ default
+#: post-type-classes.php:16
+msgid "View Class"
+msgstr "Ver aula"
+
+# @ default
+#: post-type-weekdays.php:14
+msgid "View Day"
+msgstr "Ver dia"
+
+# @ default
+#: post-type-gallery.php:14
+msgid "View Gallery Item"
+msgstr "Ver galeria"
+
+# @ default
+#: post-type-trainers.php:14
+msgid "View Trainer"
+msgstr "Ver instrutor"
+
+# @ default
+#: search.php:80 shortcodes/latest_news.php:52 single.php:75
+#: template-blog.php:91
+#, php-format
+msgid "View all posts filed under %s"
+msgstr "Ver todos os posts em %s"
+
+# @ default
+#: comments-form.php:29 comments-functions.php:27 contact_form.php:16
+msgid "Website (optional)"
+msgstr "Site (opcional)"
+
+# @ default
+#: post-type-weekdays.php:19
+msgid "Weekdays"
+msgstr "Dias da semana"
+
+# @ default
+#: comments-functions.php:37
+msgid "Your comment has been added"
+msgstr "Seu comentário foi adicionado"
+
+# @ default
+#: comments-form.php:26 comments-functions.php:9 comments-functions.php:70
+#: contact_form.php:13 contact_form.php:41 contact_form.php:94
+msgid "Your email"
+msgstr "Seu email"
+
+# @ default
+#: comments-form.php:23 comments-functions.php:9 comments-functions.php:68
+#: contact_form.php:10 contact_form.php:41 contact_form.php:92
+msgid "Your name"
+msgstr "Seu nome"
+
+# @ default
+#: widgets/widget-contact-details.php:135
+msgid "address_line_1"
+msgstr "linha_de_endereço_1"
+
+# @ default
+#: widgets/widget-contact-details.php:139
+msgid "address_line_2"
+msgstr "linha_de_endereço_2"
+
+# @ default
+#: widgets/widget-contact-details.php:143
+msgid "address_line_3"
+msgstr "linha_de_endereço_3"
+
+# @ default
+#: meta-box.php:72
+msgid "ascending"
+msgstr "ascendente"
+
+# @ default
+#: widgets/widget-footer-box.php:118 widgets/widget-home-box.php:150
+msgid "calendar"
+msgstr "Calendário"
+
+# @ default
+#: widgets/widget-contact-details.php:147
+msgid "contact_line_1"
+msgstr "linha_de_contato_1"
+
+# @ default
+#: widgets/widget-contact-details.php:151
+msgid "contact_line_2"
+msgstr "linha_de_contato_2"
+
+# @ default
+#: widgets/widget-contact-details.php:155
+msgid "contact_line_3"
+msgstr "linha_de_contato_3"
+
+# @ default
+#: theme-options.php:468
+msgid "cover"
+msgstr "cobrir"
+
+# @ default
+#: theme-options.php:467
+msgid "crossfade"
+msgstr "sobrepor"
+
+# @ default
+#: widgets/widget-home-box.php:141
+msgid "dark"
+msgstr "escurecer"
+
+# @ default
+#: meta-box.php:73
+msgid "descending"
+msgstr "descendente"
+
+# @ default
+#: theme-options.php:465
+msgid "directscroll"
+msgstr "rolagem direta"
+
+# @ default
+#: theme-options.php:506
+msgid "easeInBack"
+msgstr "easeInBack"
+
+# @ default
+#: theme-options.php:509
+msgid "easeInBounce"
+msgstr "easeInBounce"
+
+# @ default
+#: theme-options.php:500
+msgid "easeInCirc"
+msgstr "easeInCirc"
+
+# @ default
+#: theme-options.php:484
+msgid "easeInCubic"
+msgstr "easeInCubic"
+
+# @ default
+#: theme-options.php:503
+msgid "easeInElastic"
+msgstr "easeInElastic"
+
+# @ default
+#: theme-options.php:494
+msgid "easeInExpo"
+msgstr "easeInExpo"
+
+# @ default
+#: theme-options.php:508
+msgid "easeInOutBack"
+msgstr "easeInOutBack"
+
+# @ default
+#: theme-options.php:511
+msgid "easeInOutBounce"
+msgstr "easeInOutBounce"
+
+# @ default
+#: theme-options.php:502
+msgid "easeInOutCirc"
+msgstr "easeInOutCirc"
+
+# @ default
+#: theme-options.php:486 theme-options.php:487
+msgid "easeInOutCubic"
+msgstr "easeInOutCubic"
+
+# @ default
+#: theme-options.php:505
+msgid "easeInOutElastic"
+msgstr "easeInOutElastic"
+
+# @ default
+#: theme-options.php:496
+msgid "easeInOutExpo"
+msgstr "easeInOutExpo"
+
+# @ default
+#: theme-options.php:483
+msgid "easeInOutQuad"
+msgstr "easeInOutQuad"
+
+# @ default
+#: theme-options.php:490
+msgid "easeInOutQuart"
+msgstr "easeInOutQuart"
+
+# @ default
+#: theme-options.php:499
+msgid "easeInOutQuint"
+msgstr "easeInOutQuint"
+
+# @ default
+#: theme-options.php:493
+msgid "easeInOutSine"
+msgstr "easeInOutSine"
+
+# @ default
+#: theme-options.php:481
+msgid "easeInQuad"
+msgstr "easeInQuad"
+
+# @ default
+#: theme-options.php:488
+msgid "easeInQuart"
+msgstr "easeInQuart"
+
+# @ default
+#: theme-options.php:497
+msgid "easeInQuint"
+msgstr "easeInQuint"
+
+# @ default
+#: theme-options.php:491
+msgid "easeInSine"
+msgstr "easeInSine"
+
+# @ default
+#: theme-options.php:507
+msgid "easeOutBack"
+msgstr "easeOutBack"
+
+# @ default
+#: theme-options.php:510
+msgid "easeOutBounce"
+msgstr "easeOutBounce"
+
+# @ default
+#: theme-options.php:501
+msgid "easeOutCirc"
+msgstr "easeOutCirc"
+
+# @ default
+#: theme-options.php:485
+msgid "easeOutCubic"
+msgstr "easeOutCubic"
+
+# @ default
+#: theme-options.php:504
+msgid "easeOutElastic"
+msgstr "easeOutElastic"
+
+# @ default
+#: theme-options.php:495
+msgid "easeOutExpo"
+msgstr "easeOutExpo"
+
+# @ default
+#: theme-options.php:482
+msgid "easeOutQuad"
+msgstr "easeOutQuad"
+
+# @ default
+#: theme-options.php:489
+msgid "easeOutQuart"
+msgstr "easeOutQuart"
+
+# @ default
+#: theme-options.php:498
+msgid "easeOutQuint"
+msgstr "easeOutQuint"
+
+# @ default
+#: theme-options.php:492
+msgid "easeOutSine"
+msgstr "easeOutSine"
+
+# @ default
+#: theme-options.php:466
+msgid "fade"
+msgstr "fade"
+
+# @ default
+#: widgets/widget-footer-box.php:109 widgets/widget-home-box.php:140
+msgid "green"
+msgstr "verde"
+
+# @ default
+#: widgets/widget-footer-box.php:119 widgets/widget-home-box.php:151
+msgid "hand"
+msgstr "hand"
+
+# @ default
+#: comments.php:77
+msgid "in reply to "
+msgstr "em resposta a"
+
+# @ default
+#: widgets/widget-footer-box.php:108 widgets/widget-home-box.php:139
+msgid "light_green"
+msgstr "light_green"
+
+# @ default
+#: theme-options.php:480
+msgid "linear"
+msgstr "linear"
+
+# @ default
+#: post-type-gallery.php:105
+msgid "new window"
+msgstr "nova janela"
+
+# @ default
+#: theme-options.php:371 theme-options.php:445
+msgid "no"
+msgstr "não"
+
+# @ default
+#: theme-options.php:464
+msgid "none"
+msgstr "none"
+
+# @ default
+#: widgets/widget-home-box.php:160
+msgid "normal"
+msgstr "normal"
+
+# @ default
+#: widgets/widget-footer-box.php:120 widgets/widget-home-box.php:152
+msgid "note"
+msgstr "nota"
+
+# @ default
+#: widgets/widget-footer-box.php:111 widgets/widget-home-box.php:143
+msgid "or pick custom one: "
+msgstr "ou selecione um:"
+
+# @ default
+#: widgets/widget-footer-box.php:121 widgets/widget-home-box.php:153
+msgid "phone"
+msgstr "telefone"
+
+# @ default
+#: post-type-gallery.php:104
+msgid "same window"
+msgstr "mesma janela"
+
+# @ default
+#: theme-options.php:463
+msgid "scroll"
+msgstr "scroll"
+
+# @ default
+#: widgets/widget-home-box.php:161
+msgid "sidebar"
+msgstr "sidebar"
+
+# @ default
+#: theme-options.php:606
+msgid "ssl"
+msgstr "ssl"
+
+# @ default
+#: widgets/widget-footer-box.php:107
+msgid "super_light_green"
+msgstr "super_light_green"
+
+# @ default
+#: theme-options.php:479
+msgid "swing"
+msgstr "swing"
+
+# @ default
+#: theme-options.php:607
+msgid "tls"
+msgstr "tls"
+
+# @ default
+#: theme-options.php:469
+msgid "uncover"
+msgstr "descobrir"
+
+# @ default
+#: widgets/widget-home-box.php:138
+msgid "white"
+msgstr "branco"
+
+# @ default
+#: theme-options.php:370 theme-options.php:444
+msgid "yes"
+msgstr "sim"
+
+# @ default
+#: comments.php:70
+msgid "Posted by "
+msgstr ""
+
+# @ default
+#: comments.php:71
+msgid " on"
+msgstr ""
+
+# @ default
+#: comments.php:73
+msgid "(Edit)"
+msgstr ""
+
+# @ default
+#: comments.php:76
+msgid "Show comment"
+msgstr ""
+
+# @ default
+#: page.php:18 search.php:18 single.php:19 template-blog.php:21
+#: template-full-width.php:21
+msgid "You are here:"
+msgstr ""
+
+# @ default
+#: post-type-classes.php:9
+msgctxt "post type general name"
+msgid "Classes"
+msgstr ""
+
+# @ default
+#: post-type-classes.php:10
+msgctxt "post type singular name"
+msgid "Class"
+msgstr ""
+
+# @ default
+#: post-type-classes.php:11
+msgctxt "classes"
+msgid "Add New"
+msgstr ""
+
+# @ default
+#: post-type-gallery.php:7
+msgctxt "post type general name"
+msgid "Gallery"
+msgstr ""
+
+# @ default
+#: post-type-gallery.php:8
+msgctxt "post type singular name"
+msgid "Gallery Item"
+msgstr ""
+
+# @ default
+#: post-type-gallery.php:9
+msgctxt "_gallery"
+msgid "Add New"
+msgstr ""
+
+# @ default
+#: post-type-gallery.php:147
+msgctxt "post type singular name"
+msgid "gallery Item"
+msgstr ""
+
+# @ default
+#: post-type-trainers.php:7
+msgctxt "post type general name"
+msgid "Trainers"
+msgstr ""
+
+# @ default
+#: post-type-trainers.php:8
+msgctxt "post type singular name"
+msgid "Trainer"
+msgstr ""
+
+# @ default
+#: post-type-trainers.php:9
+msgctxt "trainers"
+msgid "Add New"
+msgstr ""
+
+# @ default
+#: post-type-weekdays.php:7
+msgctxt "post type general name"
+msgid "Weekdays"
+msgstr ""
+
+# @ default
+#: post-type-weekdays.php:8
+msgctxt "post type singular name"
+msgid "Day"
+msgstr ""
+
+# @ default
+#: post-type-weekdays.php:9
+msgctxt "_portfolio"
+msgid "Add New"
+msgstr ""
+
+# @ default
+#: post-type-weekdays.php:41
+msgctxt "post type singular name"
+msgid "Day name"
+msgstr ""
+
+# @ default
+#: theme-options.php:780 theme-options.php:813 theme-options.php:962
+#: theme-options.php:979 theme-options.php:996 theme-options.php:1067
+#: theme-options.php:1076 theme-options.php:1132 theme-options.php:1141
+#: theme-options.php:1150 theme-options.php:1159 theme-options.php:1168
+#: theme-options.php:1177
+msgid "Enter 'none' for no border"
+msgstr ""
+
+# @ default
+#: widgets/widget-home-box.php:154
+msgid "car"
+msgstr ""

@@ -1,0 +1,15 @@
+/* resets
+--------------------------------------------- */
+html,body,div,span,h1,p,a,img,strong,ul,li,form,label{margin:0;padding:0;font-size:100%;vertical-align:baseline;border:0;outline:0;background:transparent;text-decoration:none}
+body,html{height:100%}
+ol,ul{list-style:none}
+* {
+	outline:0px;
+	border:none
+	box-sizing:border-box;
+}
+::-webkit-input-placeholder,
+::-moz-placeholder,
+::-ms-input-placeholder {
+	color: rgba(0,0,0,0.8)
+}

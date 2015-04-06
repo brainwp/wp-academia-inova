@@ -23,14 +23,14 @@
 			<div class="header clearfix">
 				<div class="header_left">
 					<a href="<?php echo get_home_url(); ?>" title="<?php bloginfo("name"); ?>">
-						<?php if( $theme_options["logo_url"] != "") : ?>
+						<?php if(is_array($theme_options) && $theme_options["logo_url"] != "") : ?>
 							<img src="<?php echo $theme_options["logo_url"]; ?>" alt="<?php bloginfo("name"); ?>" />
 						<?php endif; ?>
-						<?php if( $theme_options["logo_first_part_text"] != ""): ?>
+						<?php if(is_array($theme_options) && $theme_options["logo_first_part_text"] != ""): ?>
 						<span class="logo_left"><?php echo $theme_options["logo_first_part_text"]; ?></span>
 						<?php 
 						endif;
-						if($theme_options["logo_second_part_text"]!=""):
+						if(is_array($theme_options) && $theme_options["logo_second_part_text"]!=""):
 						?>
 						<span class="logo_right"><?php echo $theme_options["logo_second_part_text"]; ?></span>
 						<?php endif; ?>

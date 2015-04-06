@@ -205,7 +205,7 @@ function get_timetable($classes_url, $class = null)
 											$drop_columns[$i+$k]["columns"][] = $j;	
 									}
 									$output .= '<td class="event"' . ($rowspan>1 ? ' rowspan="' . $rowspan . '"' : '') . '>';
-									$output .= get_row_content($i, &$class_hours_tt[$j], $rowspan, $classes_url);
+									$output .= get_row_content($i, $class_hours_tt[$j], $rowspan, $classes_url);
 									$output .= '</td>';
 								}
 								else

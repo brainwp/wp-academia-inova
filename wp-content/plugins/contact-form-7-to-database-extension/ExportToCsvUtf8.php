@@ -1,6 +1,6 @@
 <?php
 /*
-    "Contact Form to Database" Copyright (C) 2011-2012 Michael Simpson  (email : michael.d.simpson@gmail.com)
+    "Contact Form to Database" Copyright (C) 2011-2013 Michael Simpson  (email : michael.d.simpson@gmail.com)
 
     This file is part of Contact Form to Database.
 
@@ -25,7 +25,14 @@ require_once('CFDBExport.php');
 class ExportToCsvUtf8 extends ExportBase implements CFDBExport {
 
     var $useBom = false;
-    var $useShiftJIS = false; // for Japanese
+    var $bak = false;
+
+    // For Japanese
+    var $useShiftJIS = false;
+    // The code number of Japanese two-byte character "ãƒ¼" is separated by Japanese encoding types.
+    // Hyphen, Centered dot
+    var $utf_escape_patterns_search =  array('/\xE2\x80\x93/', '/\xE2\x80\xA2/');
+    var $utf_escape_patterns_replace = array("\xE2\x88\x92",   "\xE3\x83\xBB");
 
     public function setUseBom($use) {
         $this->useBom = $use;
@@ -34,7 +41,7 @@ class ExportToCsvUtf8 extends ExportBase implements CFDBExport {
     public function setUseShiftJIS($use) {
         // If mb_convert_encoding function is not enabled (mb_string module is not installed),
         // then converting cannot be done.
-        if ($use && !function_exists('mb_convert_encoding')){
+        if ($use && !function_exists('mb_convert_encoding')) {
             $this->useShiftJIS = false;
         }
         else {
@@ -43,6 +50,14 @@ class ExportToCsvUtf8 extends ExportBase implements CFDBExport {
     }
 
     public function export($formName, $options = null) {
+
+        if (isset($options['bak']) && $options['bak'] == 'true') {
+            $this->bak = true;
+            $options['hide'] = 'Submitted';
+            $options['show'] = 'submit_time,/.*/';
+            $options['unbuffered'] = 'true';
+        }
+
         $this->setOptions($options);
         $this->setCommonOptions();
 
@@ -52,7 +67,7 @@ class ExportToCsvUtf8 extends ExportBase implements CFDBExport {
             return;
         }
 
-        if ($this->options && is_array($this->options)) {
+        if ($this->options && !$this->bak && is_array($this->options)) {
             if (isset($this->options['bom'])) {
                 $this->useBom = $this->options['bom'] == 'true';
             }
@@ -76,18 +91,10 @@ class ExportToCsvUtf8 extends ExportBase implements CFDBExport {
      * @return string
      */
     public function japanese_convert_utf8_to_sjis($str) {
-        $utf_escape_patterns_revert = array(
-            // The code number of Japanese two-byte character "ãƒ¼" is separated by Japanese encoding types.
-            '/\xE2\x80\x93/' => "\xE2\x88\x92", // Hyphen
-            '/\xE2\x80\xA2/' => "\xE3\x83\xBB" // Centered dot
-        );
-
-        $str = preg_replace(
-            array_keys($utf_escape_patterns_revert),
-            array_values($utf_escape_patterns_revert),
-            $str);
-
-        return $str;
+        return preg_replace(
+                $this->utf_escape_patterns_search,
+                $this->utf_escape_patterns_replace,
+                $str);
     }
 
 
@@ -109,8 +116,12 @@ class ExportToCsvUtf8 extends ExportBase implements CFDBExport {
            // do not output column headers
         }
         else  {
-            foreach ($this->dataIterator->displayColumns as $aCol) {
-                printf('"%s",', str_replace('"', '""', $aCol));
+            foreach ($this->dataIterator->getDisplayColumns() as $aCol) {
+                $colDisplayValue = $aCol;
+                if ($this->headers && isset($this->headers[$aCol])) {
+                    $colDisplayValue = $this->headers[$aCol];
+                }
+                printf('"%s",', str_replace('"', '""', $colDisplayValue));
             }
             echo $eol;
         }
@@ -124,7 +135,7 @@ class ExportToCsvUtf8 extends ExportBase implements CFDBExport {
                     $this->dataIterator->row['fields_with_file'] != null) {
                 $fields_with_file = explode(',', $this->dataIterator->row['fields_with_file']);
             }
-            foreach ($this->dataIterator->displayColumns as $aCol) {
+            foreach ($this->dataIterator->getDisplayColumns() as $aCol) {
                 $cell = isset($this->dataIterator->row[$aCol]) ? $this->dataIterator->row[$aCol] : '';
                 if ($showFileUrlsInExport &&
                         $fields_with_file &&

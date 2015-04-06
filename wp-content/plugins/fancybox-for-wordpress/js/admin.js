@@ -1,26 +1,29 @@
 
-jQuery(function(){
+jQuery(function() {
 
 	// Tabs
 	jQuery("#fbfwTabs").tabs();
 
 	// Hide Donation and twitter stuff on tabs other than Info
-	jQuery("#fbfwTabs li a").click(function(){
-		jQuery("#mfbfwd").hide();
-	});
-
-	jQuery("#show-mfbfwd").click(function(){
-		jQuery("#mfbfwd").show();
+	jQuery("#fbfwTabs li a").click(function() {
+		if ( jQuery(this).is("#ui-id-1") ) {
+			jQuery("#mfbfwd").show();
+		} else {
+			jQuery("#mfbfwd").hide();
+		}
 	});
 
 
 	// Hide form fields when not needed (swithed by checkbox)
 	function switchBlock(block,button) {
-		var buttonValue = jQuery(button + "#:checked").val();
-		if (buttonValue == "on") { jQuery(block).css("display", "inline"); }
-		else { jQuery(block).css("display", "none"); }
+		var buttonValue = jQuery(button + ":checked").val();
+		if ( buttonValue == "on" ) {
+			jQuery(block).css("display", "inline");
+		} else {
+			jQuery(block).css("display", "none");
+		}
 
-		jQuery(button).click(function(){
+		jQuery(button).click(function() {
 			jQuery(block).animate({opacity: "toggle", height: "toggle"}, 500);
 		});
 	}
@@ -44,11 +47,11 @@ jQuery(function(){
 			jQuery("#titleColorBlock").css("display", "none");
 	}
 
-	jQuery("#titlePositionFloat, #titlePositionOutside, #titlePositionOver").click(function () {
+	jQuery("#titlePositionFloat, #titlePositionOutside, #titlePositionOver").click(function() {
 		jQuery("#titleColorBlock").hide("slow");
 	});
 
-	jQuery("#titlePositionInside").click(function () {
+	jQuery("#titlePositionInside").click(function() {
 		jQuery("#titleColorBlock").show("slow");
 	});
 
@@ -63,18 +66,18 @@ jQuery(function(){
 			jQuery("#customExpressionBlock").css("display", "none");
 	}
 
-	jQuery("#galleryTypeAll, #galleryTypeNone, #galleryTypePost").click(function () {
+	jQuery("#galleryTypeAll, #galleryTypeNone, #galleryTypePost").click(function() {
 		jQuery("#customExpressionBlock").hide("slow");
 	});
 
-	jQuery("#galleryTypeCustom").click(function () {
+	jQuery("#galleryTypeCustom").click(function() {
 		jQuery("#customExpressionBlock").show("slow");
 	});
 
 })
 
 function confirmDefaults() {
-	if (confirm(defaults_prompt) == true)
+	if ( confirm(defaults_prompt) == true )
 		return true;
 	else
 		return false;

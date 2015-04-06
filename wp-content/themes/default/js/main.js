@@ -1,3 +1,8 @@
+//responsive menu
+/*! http://tinynav.viljamis.com v1.2 by @viljamis */
+(function(a,k,g){a.fn.tinyNav=function(l){var c=a.extend({active:"selected",header:"",indent:"- ",label:""},l);return this.each(function(){g++;var h=a(this),b="tinynav"+g,f=".l_"+b,e=a("<select/>").attr("id",b).addClass("tinynav "+b);if(h.is("ul,ol")){""!==c.header&&e.append(a("<option/>").text(c.header));var d="";h.addClass("l_"+b).find("a").each(function(){d+='<option value="'+a(this).attr("href")+'">';var b;for(b=0;b<a(this).parents("ul, ol").length-1;b++)d+=c.indent;d+=a(this).text()+"</option>"});
+e.append(d);c.header||e.find(":eq("+a(f+" li").index(a(f+" li."+c.active))+")").attr("selected",!0);e.change(function(){k.location.href=a(this).val()});a(f).after(e);c.label&&e.before(a("<label/>").attr("for",b).addClass("tinynav_label "+b+"_label").append(c.label))}})}})(jQuery,this,0);
+
 if(!Date.prototype.toISOString) 
 {
     Date.prototype.toISOString = function() 
@@ -23,77 +28,13 @@ function onBeforeSlide()
 }
 jQuery(document).ready(function($){
 	//mobile menu
-	$(".mobile_menu select, .timetable_dropdown_navigation").change(function(){
-		window.location.href = $(this).val();
-		return;
-	});
+	$(".sf-menu").tinyNav({
+	    header: 'Menu', // String: Specify text for "header" and show header instead of the active item
+        indent: '- ', // String: Specify text for indenting sub-items
+    });
 	
-	//slider
-	$(".slider").carouFredSel({
-		responsive: true,
-		prev: {
-			button: '#prev',
-			onAfter: onAfterSlide,
-			onBefore: onBeforeSlide,
-			fx: config.slider_effect,
-			easing: config.slider_transition,
-			duration: parseInt(config.slider_transition_speed)
-		},
-		next: {
-			button: '#next',
-			onAfter: onAfterSlide,
-			onBefore: onBeforeSlide,
-			fx: config.slider_effect,
-			easing: config.slider_transition,
-			duration: parseInt(config.slider_transition_speed)
-		},
-		auto: {
-			play: config.slider_autoplay=="true" ? true : false,
-			pauseDuration: parseInt(config.slide_interval),
-			onAfter: onAfterSlide,
-			onBefore: onBeforeSlide,
-			fx: config.slider_effect,
-			easing: config.slider_transition,
-			duration: parseInt(config.slider_transition_speed)
-		}
-	},
-	{
-		wrapper: {
-			classname: "caroufredsel_wrapper caroufredsel_wrapper_slider"
-		}
-	});
-	
+		
 	//upcoming classes
-	$(".upcoming_classes").carouFredSel({
-		responsive: ($(".upcoming_classes").children().length>2 ? true : false),
-		direction: "up",
-		items: {
-			visible: 3
-		},
-		scroll: {
-			items: 1,
-			easing: "swing",
-			pauseOnHover: true
-		},
-		prev: '#upcoming_class_prev',
-		next: '#upcoming_class_next',
-		auto: {
-			play: true
-		}
-	});
-	
-	//training_classes
-	$(".accordion").accordion({
-		event: 'change',
-		autoHeight: false
-	});
-	$(".tabs").tabs({
-		event: 'change',
-		create: function(){
-			$("html, body").scrollTop(0);
-		}
-	});
-	
 	//browser history
 	$(".tabs .ui-tabs-nav a").click(function(){
 		if ( $(this).hasClass("no-tab") )
@@ -205,19 +146,6 @@ jQuery(document).ready(function($){
 	//timeago
 	$("abbr.timeago").timeago();
 	
-	//footer recent posts, most commented, most viewed
-	$(".footer_recent_posts, .most_commented, .most_viewed").carouFredSel({
-		direction: "up",
-		scroll: {
-			items: 1,
-			easing: "swing",
-			pauseOnHover: true,
-			height: "variable"
-		},
-		auto: {
-			play: false
-		}
-	});
 	$(".footer_recent_posts").trigger("configuration", {
 		items: {
 			visible: ($(".footer_recent_posts").children().length>2 ? 3 : $(".footer_recent_posts").children().length)

@@ -1,0 +1,7 @@
+<?php
+// datastore=sitecheck;
+// created_on=1427394420;
+// updated_on=1427394452;
+exit(0);
+?>
+scan_results:{"SCAN":{"SITE":["http:\/\/www.academiainova.com.br"],"DOMAIN":["www.academiainova.com.br"],"IP":["187.84.230.94"]},"SYSTEM":{"ERROR":["Unable to properly scan your site. Unable to connect."]},"BLACKLIST":{"INFO":[["Domain clean by Google Safe Browsing: www.academiainova.com.br","http:\/\/safebrowsing.clients.google.com\/safebrowsing\/diagnostic?site=www.academiainova.com.br"],["Domain clean by Norton Safe Web: www.academiainova.com.br","http:\/\/safeweb.norton.com\/report\/show?url=www.academiainova.com.br"],["Domain clean on Phish tank: www.academiainova.com.br","http:\/\/www.phishtank.com\/"],["Domain clean on the Opera browser: www.academiainova.com.br","http:\/\/opera.com\/"],["Domain clean by SiteAdvisor: www.academiainova.com.br","http:\/\/www.siteadvisor.com\/sites\/www.academiainova.com.br"],["Domain clean by the Sucuri Malware Labs blacklist: www.academiainova.com.br","http:\/\/labs.sucuri.net\/?blacklist=www.academiainova.com.br"],["Domain clean on SpamHaus DBL: www.academiainova.com.br","http:\/\/www.spamhaus.org\/query\/domain\/www.academiainova.com.br"],["Domain clean by Bitdefender: www.academiainova.com.br","http:\/\/trafficlight.bitdefender.com\/info?url=www.academiainova.com.br"],["Domain clean on Yandex (via Sophos): www.academiainova.com.br","http:\/\/www.yandex.com\/infected?url=www.academiainova.com.br&amp;l10n=en"],["Domain clean by ESET: www.academiainova.com.br","http:\/\/labs.sucuri.net\/?eset"]]}}

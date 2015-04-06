@@ -3,7 +3,7 @@
 Template Name: Home
 */
 get_header(); 
-echo do_shortcode("[slider]");
+echo do_shortcode('[brasa_slider name="Slider home" size="full"]');
 ?>
 <div class="theme_page relative">
 	<?php if($theme_options["home_page_top_hint"]!=""): ?>
@@ -12,7 +12,6 @@ echo do_shortcode("[slider]");
 	</div>
 	<?php
 	endif;
-	echo do_shortcode("[slider_content]");
 	?>
 	<ul class="home_box_container clearfix">
 	<?php

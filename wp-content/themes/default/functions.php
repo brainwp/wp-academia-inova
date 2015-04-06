@@ -170,11 +170,11 @@ function theme_enqueue_scripts()
 	global $themename;
 	global $theme_options;
 	//style
-	if($theme_options["header_font"]!="")
+	if(is_array($theme_options) && $theme_options["header_font"]!="")
 		wp_enqueue_style("google-font-header", "http://fonts.googleapis.com/css?family=" . urlencode($theme_options["header_font"]));
 	else
 		wp_enqueue_style("google-font-droid-sans", "http://fonts.googleapis.com/css?family=Droid+Sans");
-	if($theme_options["subheader_font"]!="")
+	if(is_array($theme_options) && $theme_options["subheader_font"]!="")
 		wp_enqueue_style("google-font-subheader", "http://fonts.googleapis.com/css?family=" . urlencode($theme_options["subheader_font"]));
 	else
 		wp_enqueue_style("google-font-droid-serif", "http://fonts.googleapis.com/css?family=Droid+Serif:400italic");
@@ -183,7 +183,7 @@ function theme_enqueue_scripts()
 	wp_enqueue_style("jquery-fancybox", get_template_directory_uri() . "/style/fancybox/jquery.fancybox.css");
 	wp_enqueue_style("jquery-qtip", get_template_directory_uri() . "/style/jquery.qtip.css");
 	wp_enqueue_style("main", get_template_directory_uri() . "/style/style.css");
-	if((int)$theme_options["responsive"])
+	if(is_array($theme_options) && (int)$theme_options["responsive"])
 		wp_enqueue_style("responsive", get_template_directory_uri() . "/style/responsive.css");
 	wp_enqueue_style("custom", get_template_directory_uri() . "/style/custom.css");
 	//js
@@ -193,14 +193,14 @@ function theme_enqueue_scripts()
 	wp_enqueue_script("jquery-ui-tabs", array("jquery"));
 	wp_enqueue_script("jquery-ba-bqq", get_template_directory_uri() . "/js/jquery.ba-bbq.min.js", array("jquery"));
 	wp_enqueue_script("jquery-easing", get_template_directory_uri() . "/js/jquery.easing.1.3.js", array("jquery"));
-	wp_enqueue_script("jquery-carouFredSel", get_template_directory_uri() . "/js/jquery.carouFredSel-5.6.1-packed.js", array("jquery"));
+	//wp_enqueue_script("jquery-carouFredSel", get_template_directory_uri() . "/js/jquery.carouFredSel-5.6.1-packed.js", array("jquery"));
 	wp_enqueue_script("jquery-linkify", get_template_directory_uri() . "/js/jquery.linkify.js", array("jquery"));
 	wp_enqueue_script("jquery-timeago", get_template_directory_uri() . "/js/jquery.timeago.js", array("jquery"));
 	wp_enqueue_script("jquery-hint", get_template_directory_uri() . "/js/jquery.hint.js", array("jquery"));
 	wp_enqueue_script("jquery-isotope", get_template_directory_uri() . "/js/jquery.isotope.min.js", array("jquery"));
 	wp_enqueue_script("jquery-fancybox", get_template_directory_uri() . "/js/jquery.fancybox-1.3.4.pack.js", array("jquery"));
 	wp_enqueue_script("jquery-qtip", get_template_directory_uri() . "/js/jquery.qtip.min.js", array("jquery"));
-	wp_enqueue_script("jquery-block-ui", get_template_directory_uri() . "/js/jquery.blockUI.js", array("jquery"));
+	//wp_enqueue_script("jquery-block-ui", get_template_directory_uri() . "/js/jquery.blockUI.js", array("jquery"));
 	wp_enqueue_script("google-maps-v3", "http://maps.google.com/maps/api/js?sensor=false");
 	wp_enqueue_script("theme-main", get_template_directory_uri() . "/js/main.js", array("jquery", "jquery-ui-core", "jquery-ui-accordion", "jquery-ui-tabs"));
 	wp_enqueue_script("custom-scripts", get_template_directory_uri() . "/js/custom.js", array("jquery"));
@@ -210,11 +210,12 @@ function theme_enqueue_scripts()
 	//themename
 	$data["themename"] = $themename;
 	//slider
-	$data["slider_autoplay"] = $theme_options["slider_autoplay"];
-	$data["slide_interval"] = $theme_options["slide_interval"];
-	$data["slider_effect"] = $theme_options["slider_effect"];
-	$data["slider_transition"] = $theme_options["slider_transition"];
-	$data["slider_transition_speed"] = $theme_options["slider_transition_speed"];
+	$data["slider_autoplay"] = (is_array($theme_options) && !empty($theme_options["slider_autoplay"])) ? $theme_options["slider_autoplay"] : '';
+	$data["slide_interval"] = (is_array($theme_options) && !empty($theme_options["slide_interval"])) ? $theme_options["slide_interval"] : '';
+	$data["slider_effect"] = (is_array($theme_options) && !empty($theme_options["slider_effect"])) ? $theme_options["slider_effect"] : '';
+	$data["slider_transition"] = (is_array($theme_options) && !empty($theme_options["slider_transition"])) ? $theme_options["slider_transition"] : '';
+	$data["slider_transition_speed"] = (is_array($theme_options) && !empty($theme_options["slider_transition_speed"])) ? ["slider_transition_speed"] : '';
+
 	//pass data to javascript
 	$params = array(
 		'l10n_print_after' => 'config = ' . json_encode($data) . ';'

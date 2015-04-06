@@ -30,9 +30,15 @@ abstract class CFDBView {
 
     protected function pageHeader(&$plugin) {
         $this->sponsorLink($plugin);
-        $this->headerLinks();
+        $this->headerLinks($plugin);
     }
 
+    function getRequestParam($name) {
+        $value = isset($_REQUEST[$name]) ? $_REQUEST[$name] : '';
+        // Prevent javascript injection
+        $value = str_ireplace('<script', '', $value);
+        return $value;
+    }
 
     /**
      * @param $plugin CF7DBPlugin
@@ -41,34 +47,47 @@ abstract class CFDBView {
     protected function sponsorLink(&$plugin) {
     }
 
-    protected function headerLinks() {
+    /**
+     * @param $plugin CF7DBPlugin
+     * @return void
+     */
+    protected function headerLinks(&$plugin) {
+        $notDonated = 'true' != $plugin->getOption('Donated', 'false');
         ?>
     <table style="width:100%;">
         <tbody>
         <tr>
-            <td width="25%" style="font-size:x-small;">
-                <a target="_donate"
-                   href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=NEVDJ792HKGFN&lc=US&item_name=Wordpress%20Plugin&item_number=cf7%2dto%2ddb%2dextension&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted">
-                    <img src="https://www.paypal.com/en_US/i/btn/btn_donate_SM.gif" alt="Donate">
-                </a>
+            <td width="20%" style="font-size:x-small;">
+                <div style="float:left"><a href="http://cfdbplugin.com/" target="_doc">
+                        <img src="<?php echo $plugin->getPluginFileUrl('img/icon-50x50.png') ?>" alt="CFDB"/>
+                    </a>
+                </div>
             </td>
-            <td width="25%" style="font-size:x-small;">
+            <td width="20%" style="font-size:x-small;">
                 <a target="_cf7todb"
                    href="http://wordpress.org/extend/plugins/contact-form-7-to-database-extension">
                     <?php _e('Rate this Plugin', 'contact-form-7-to-database-extension') ?>
                 </a>
             </td>
-            <td width="25%" style="font-size:x-small;">
+            <td width="20%" style="font-size:x-small;">
                 <a target="_cf7todb"
                    href="http://cfdbplugin.com/">
                     <?php _e('Documentation', 'contact-form-7-to-database-extension') ?>
                 </a>
             </td>
-            <td width="25%" style="font-size:x-small;">
+            <td width="20%" style="font-size:x-small;">
                 <a target="_cf7todb"
                    href="http://wordpress.org/support/plugin/contact-form-7-to-database-extension">
                     <?php _e('Support', 'contact-form-7-to-database-extension') ?>
                 </a>
+            </td>
+            <td width="20%" style="font-size:x-small;">
+                <?php
+                if ($notDonated) { ?>
+                    <a target="_donate"
+                       href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=NEVDJ792HKGFN&lc=US&item_name=Wordpress%20Plugin&item_number=cf7%2dto%2ddb%2dextension&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted">
+                        <img src="https://www.paypal.com/en_US/i/btn/btn_donate_SM.gif" alt="Donate">
+                    </a> <?php } ?>
             </td>
         </tr>
         </tbody>

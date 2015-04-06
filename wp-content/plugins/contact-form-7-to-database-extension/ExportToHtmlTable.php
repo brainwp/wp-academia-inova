@@ -1,6 +1,6 @@
 <?php
 /*
-    "Contact Form to Database" Copyright (C) 2011-2012 Michael Simpson  (email : michael.d.simpson@gmail.com)
+    "Contact Form to Database" Copyright (C) 2011-2013 Michael Simpson  (email : michael.d.simpson@gmail.com)
 
     This file is part of Contact Form to Database.
 
@@ -21,6 +21,7 @@
 
 require_once('ExportBase.php');
 require_once('CFDBExport.php');
+require_once('CFDBShortCodeContentParser.php');
 
 class ExportToHtmlTable extends ExportBase implements CFDBExport {
 
@@ -39,7 +40,8 @@ class ExportToHtmlTable extends ExportBase implements CFDBExport {
      * Echo a table of submitted form data
      * @param string $formName
      * @param array $options
-     * @return void
+     * @return void|string returns String when called from a short code,
+     * otherwise echo's output and returns void
      */
     public function export($formName, $options = null) {
         $this->setOptions($options);
@@ -47,6 +49,7 @@ class ExportToHtmlTable extends ExportBase implements CFDBExport {
 
         $canDelete = false;
         $useDT = false;
+        $editMode = false;
         $printScripts = false;
         $printStyles = false;
 
@@ -62,6 +65,10 @@ class ExportToHtmlTable extends ExportBase implements CFDBExport {
                 if (isset($options['printStyles'])) {
                     $printStyles = $options['printStyles'];
                 }
+                if (isset($options['edit'])) {
+                    $this->dereferenceOption('edit');
+                    $editMode = 'true' == $this->options['edit'];
+                }
             }
 
             if (isset($options['canDelete'])) {
@@ -73,6 +80,9 @@ class ExportToHtmlTable extends ExportBase implements CFDBExport {
         if (!$this->isAuthorized()) {
             $this->assertSecurityErrorMessage();
             return;
+        }
+        if ($editMode && !$this->plugin->canUserDoRoleOption('CanChangeSubmitData')) {
+            $editMode = false;
         }
 
         // Headers
@@ -107,20 +117,42 @@ class ExportToHtmlTable extends ExportBase implements CFDBExport {
         $submitTimeKeyName = 'Submit_Time_Key';
         $this->setDataIterator($formName, $submitTimeKeyName);
 
+        // Break out sections: Before, Content, After
+        $before = '';
+        $content = '';
+        $after = '';
+        if (isset($options['content'])) {
+            $contentParser = new CFDBShortCodeContentParser;
+            list($before, $content, $after) = $contentParser->parseBeforeContentAfter($options['content']);
+        }
+
+        if ($before) {
+            // Allow for short codes in "before"
+            echo do_shortcode($before);
+        }
+
         if ($useDT) {
-            $dtJsOptions = isset($options['dt_options']) ? $options['dt_options'] : false;
-            if (!$dtJsOptions) {
-                $dtJsOptions = '"bJQueryUI": true, "aaSorting": []';
-                $i18nUrl = $this->plugin->getDataTableTranslationUrl();
-                if ($i18nUrl) {
-                    $dtJsOptions = $dtJsOptions . ", \"oLanguage\": { \"sUrl\":  \"$i18nUrl\" }";
+            $dtJsOptions = isset($options['dt_options']) ?
+                    $options['dt_options'] :
+                    '"bJQueryUI": true, "aaSorting": [], "iDisplayLength": -1, "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "' . __('All', 'contact-form-7-to-database-extension') . '"]]';
+            $i18nUrl = $this->plugin->getDataTableTranslationUrl();
+            if ($i18nUrl) {
+                if (!empty($dtJsOptions)) {
+                    $dtJsOptions .= ',';
                 }
+                $dtJsOptions .=  " \"oLanguage\": { \"sUrl\":  \"$i18nUrl\" }";
             }
+            $dtJsOptions = stripslashes($dtJsOptions); // unescape single quotes when posted via URL
             ?>
             <script type="text/javascript" language="Javascript">
                 jQuery(document).ready(function() {
                     jQuery('#<?php echo $this->htmlTableId ?>').dataTable({
-                        <?php echo $dtJsOptions ?> })
+                        <?php
+                            echo $dtJsOptions;
+                            if ($editMode) {
+                                do_action_ref_array('cfdb_edit_fnDrawCallbackJsonForSC', array($this->htmlTableId));
+                            }
+                        ?> })
                 });
             </script>
             <?php
@@ -186,14 +218,26 @@ class ExportToHtmlTable extends ExportBase implements CFDBExport {
             ?>
             <tr>
             <?php if ($canDelete) { ?>
-            <th>
+            <th id="delete_th">
                 <button id="delete" name="delete" onclick="this.form.submit()"><?php _e('Delete', 'contact-form-7-to-database-extension')?></button>
+                <input type="checkbox" id="selectall"/>
+                <script type="text/javascript">
+                    jQuery(document).ready(function() {
+                        jQuery('#selectall').click(function() {
+                            jQuery('#<?php echo $this->htmlTableId ?>').find('input[id^="delete_"]').attr('checked', this.checked);
+                        });
+                    });
+                </script>
             </th>
             <?php
 
             }
-            foreach ($this->dataIterator->displayColumns as $aCol) {
-                printf('<th title="%s"><div id="%s,%s">%s</div></th>', $aCol, $formName, $aCol, $aCol);
+            foreach ($this->dataIterator->getDisplayColumns() as $aCol) {
+                $colDisplayValue = $aCol;
+                if ($this->headers && isset($this->headers[$aCol])) {
+                    $colDisplayValue = $this->headers[$aCol];
+                }
+                printf('<th title="%s"><div id="%s,%s">%s</div></th>', $colDisplayValue, $formName, $aCol, $colDisplayValue);
             }
             ?>
             </tr>
@@ -205,12 +249,15 @@ class ExportToHtmlTable extends ExportBase implements CFDBExport {
             $showLineBreaks = $this->plugin->getOption('ShowLineBreaksInDataTable');
             $showLineBreaks = 'false' != $showLineBreaks;
             while ($this->dataIterator->nextRow()) {
-                $submitKey = $this->dataIterator->row[$submitTimeKeyName];
+                $submitKey = '';
+                if (isset($this->dataIterator->row[$submitTimeKeyName])) {
+                    $submitKey = $this->dataIterator->row[$submitTimeKeyName];
+                }
                 ?>
                 <tr>
-                <?php if ($canDelete) { // Put in the delete checkbox ?>
+                <?php if ($canDelete && $submitKey) { // Put in the delete checkbox ?>
                     <td align="center">
-                        <input type="checkbox" name="<?php echo $submitKey ?>" value="row"/>
+                        <input type="checkbox" id="delete_<?php echo $submitKey ?>" name="<?php echo $submitKey ?>" value="row"/>
                     </td>
                 <?php
 
@@ -220,7 +267,7 @@ class ExportToHtmlTable extends ExportBase implements CFDBExport {
                 if (isset($this->dataIterator->row['fields_with_file']) && $this->dataIterator->row['fields_with_file'] != null) {
                     $fields_with_file = explode(',', $this->dataIterator->row['fields_with_file']);
                 }
-                foreach ($this->dataIterator->displayColumns as $aCol) {
+                foreach ($this->dataIterator->getDisplayColumns() as $aCol) {
                     $cell = $this->rawValueToPresentationValue(
                         $this->dataIterator->row[$aCol],
                         $showLineBreaks,
@@ -238,6 +285,11 @@ class ExportToHtmlTable extends ExportBase implements CFDBExport {
             </tbody>
         </table>
         <?php
+
+        if ($after) {
+            // Allow for short codes in "after"
+            echo do_shortcode($after);
+        }
 
         if ($this->isFromShortCode) {
             // If called from a shortcode, need to return the text,

@@ -1,6 +1,6 @@
 <?php
 /*
-    "Contact Form to Database" Copyright (C) 2011-2012 Michael Simpson  (email : michael.d.simpson@gmail.com)
+    "Contact Form to Database" Copyright (C) 2011-2013 Michael Simpson  (email : michael.d.simpson@gmail.com)
 
     This file is part of Contact Form to Database.
 
@@ -38,32 +38,34 @@ class CFDBViewWhatsInDB extends CFDBView {
         $tableHtmlId = 'cf2dbtable';
 
         // Identify which forms have data in the database
-        $formsFromQuery = $wpdb->get_results("select distinct `form_name` from `$tableName` order by `form_name`");
-        if ($formsFromQuery == null || count($formsFromQuery) == 0) {
+        $formsList = $plugin->getForms();
+        if (count($formsList) == 0) {
             _e('No form submissions in the database', 'contact-form-7-to-database-extension');
             return;
         }
         $page = 1;
         if (isset($_REQUEST['dbpage'])) {
-            $page = $_REQUEST['dbpage'];
-        }
-        else if (isset($_GET['dbpage'])) {
-            $page = $_GET['dbpage'];
+            $page = $this->getRequestParam('dbpage');
         }
         $currSelection = null;
         if (isset($_REQUEST['form_name'])) {
-            $currSelection = $_REQUEST['form_name'];
+            $currSelection = $this->getRequestParam('form_name');
         }
-        else if (isset($_GET['form_name'])) {
-            $currSelection = $_GET['form_name'];
+        else if (isset($_REQUEST['form'])) {
+            $currSelection = $this->getRequestParam('form');
         }
+        $currSelectionEscaped = htmlspecialchars($currSelection);
         // If there is only one form in the DB, select that by default
-        if (!$currSelection && count($formsFromQuery) == 1) {
-            $currSelection = $formsFromQuery[0]->form_name;
+        if (!$currSelection && count($formsList) == 1) {
+            $currSelection = $formsList[0];
+            // Bug fix: Need to set this so the Editor plugin can reference it
+            $_REQUEST['form_name'] = $formsList[0];
         }
         if ($currSelection) {
             // Check for delete operation
-            if (isset($_POST['delete']) && $canEdit) {
+            if (isset($_POST['delete']) &&
+                    $canEdit &&
+                    check_admin_referer('delete-from-' . $currSelectionEscaped)) {
                 if (isset($_POST['submit_time'])) {
                     $submitTime = $_POST['submit_time'];
                     $wpdb->query(
@@ -92,7 +94,9 @@ class CFDBViewWhatsInDB extends CFDBView {
                     }
                 }
             }
-            else if (isset($_POST['delete_wpcf7']) && $canEdit) {
+            else if (isset($_POST['delete_wpcf7']) &&
+                    $canEdit &&
+                    check_admin_referer('delete_wpcf7-' . $currSelectionEscaped)) {
                 $plugin->delete_wpcf7_fields($currSelection);
                 $plugin->add_wpcf7_noSaveFields();
             }
@@ -105,14 +109,13 @@ class CFDBViewWhatsInDB extends CFDBView {
         <tr>
             <td align="left" valign="top">
                 <form method="get" action="" name="displayform" id="displayform">
-                    <input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>"/>
+                    <input type="hidden" name="page" value="<?php echo $this->getRequestParam('page') ?>"/>
                     <select name="form_name" id="form_name" onchange="this.form.submit();">
                         <option value=""><?php _e('* Select a form *', 'contact-form-7-to-database-extension') ?></option>
-                        <?php foreach ($formsFromQuery as $aRow) {
-                        $formName = $aRow->form_name;
-                        $selected = ($formName == $currSelection) ? "selected" : "";
+                        <?php foreach ($formsList as $formName) {
+                            $selected = ($formName == $currSelection) ? "selected" : "";
                         ?>
-                        <option value="<?php echo $formName ?>" <?php echo $selected ?>><?php echo $formName ?></option>
+                        <option value="<?php echo $formName ?>" <?php echo $selected ?>><?php echo htmlspecialchars($formName) ?></option>
                         <?php } ?>
                     </select>
                 </form>
@@ -140,6 +143,7 @@ class CFDBViewWhatsInDB extends CFDBView {
                     }
                     function exportData(encSelect) {
                         var enc = encSelect.options[encSelect.selectedIndex].value;
+                        var url;
                         if (enc == 'GSS') {
                             if (typeof jQuery == 'function') {
                                 try {
@@ -155,8 +159,13 @@ class CFDBViewWhatsInDB extends CFDBView {
                                 alert("<?php _e('Cannot perform operation because jQuery is not loaded in this page', 'contact-form-7-to-database-extension')?>");
                             }
                         }
+                        else if (enc == 'GLD') {
+                            alert("<?php _e('You will now be navigated to the builder page where it will generate a function to place in your Google Spreadsheet', 'contact-form-7-to-database-extension')?>");
+                            url = '<?php echo admin_url('admin.php') ?>?page=CF7DBPluginShortCodeBuilder&form=<?php echo urlencode($currSelection) ?>&enc=' + enc;
+                            location.href = url;
+                        }
                         else {
-                            var url = '<?php echo admin_url('admin-ajax.php') ?>?action=cfdb-export&form=<?php echo urlencode($currSelection) ?>&enc=' + enc;
+                            url = '<?php echo admin_url('admin-ajax.php') ?>?action=cfdb-export&form=<?php echo urlencode($currSelection) ?>&enc=' + enc;
                             var searchVal = getSearchFieldValue();
                             if (searchVal != null && searchVal != "") {
                                 url += '&search=' + encodeURIComponent(searchVal);
@@ -190,6 +199,7 @@ class CFDBViewWhatsInDB extends CFDBView {
                     }
                 </script>
                 <form name="exportcsv" action="">
+                    <input type="hidden" name="unbuffered" value="true"/>
                     <select size="1" name="enc">
                         <option id="IQY" value="IQY">
                             <?php _e('Excel Internet Query', 'contact-form-7-to-database-extension'); ?>
@@ -222,7 +232,7 @@ class CFDBViewWhatsInDB extends CFDBView {
                     <input name="exportButton" type="button"
                            value="<?php _e('Export', 'contact-form-7-to-database-extension'); ?>"
                            onclick="exportData(this.form.elements['enc'])"/>
-                    <span style="font-size: x-small;"><br /><?php echo '<a href="admin.php?page=' . $plugin->getSortCodeBuilderPageSlug() . '">' .
+                    <span style="font-size: x-small;"><br /><?php echo '<a href="admin.php?page=' . $plugin->getShortCodeBuilderPageSlug() . '">' .
                           __('Advanced Export', 'contact-form-7-to-database-extension') . '</a>' ?>
                 </form>
                 <?php } ?>
@@ -230,15 +240,17 @@ class CFDBViewWhatsInDB extends CFDBView {
             <td align="right" valign="top">
                 <?php if ($currSelection && $canEdit) { ?>
                 <form action="" method="post">
-                    <input name="form_name" type="hidden" value="<?php echo $currSelection ?>"/>
+                    <input name="form_name" type="hidden" value="<?php echo $currSelectionEscaped ?>"/>
                     <input name="all" type="hidden" value="y"/>
+                    <?php wp_nonce_field('delete-from-' . $currSelectionEscaped); ?>
                     <input name="delete" type="submit"
                            value="<?php _e('Delete All This Form\'s Records', 'contact-form-7-to-database-extension'); ?>"
-                           onclick="return confirm('Are you sure you want to delete all the data for this form?')"/>
+                           onclick="return confirm('<?php _e('Are you sure you want to delete all the data for this form?', 'contact-form-7-to-database-extension')?>')"/>
                 </form>
                 <br/>
                     <form action="" method="post">
-                        <input name="form_name" type="hidden" value="<?php echo $currSelection ?>"/>
+                        <input name="form_name" type="hidden" value="<?php echo $currSelectionEscaped ?>"/>
+                        <?php wp_nonce_field('delete_wpcf7-' . $currSelectionEscaped); ?>
                         <input name="delete_wpcf7" type="submit"
                                value="<?php _e('Remove _wpcf7 columns', 'contact-form-7-to-database-extension') ?>"/>
                     </form>
@@ -266,14 +278,25 @@ class CFDBViewWhatsInDB extends CFDBView {
             // Show table of form data
             if ($useDataTables) {
                 $i18nUrl = $plugin->getDataTableTranslationUrl();
+
+                // Work out the datatable menu for number or rows shown
+                $maxVisible = $plugin->getOption('MaxVisibleRows', -1);
+                if (!is_numeric($maxVisible)) {
+                    $maxVisible = -1;
+                }
+                $menuJS = $this->createDatatableLengthMenuJavascriptString($maxVisible);
                 ?>
             <script type="text/javascript" language="Javascript">
                 var oTable;
                 jQuery(document).ready(function() {
                     oTable = jQuery('#<?php echo $tableHtmlId ?>').dataTable({ <?php // "sDom": 'Rlfrtip', // ColReorder ?>
-                    "bJQueryUI": true,
-                    "aaSorting": [],
-                    "bScrollCollapse": true
+                        "bJQueryUI": true,
+                        "aaSorting": [],
+                        //"sScrollY": "400",
+                        "bScrollCollapse": true,
+                        "sScrollX":"100%",
+                        "iDisplayLength": <?php echo $maxVisible ?>,
+                        "aLengthMenu": <?php echo $menuJS ?>
                         <?php
                         if ($i18nUrl) {
                             echo ", \"oLanguage\": { \"sUrl\":  \"$i18nUrl\" }";
@@ -284,6 +307,7 @@ class CFDBViewWhatsInDB extends CFDBView {
 
                         ?>
                     });
+                    jQuery('th[id="delete_th"]').unbind('click'); <?php // Don't sort delete column ?>
                 });
 
             </script>
@@ -293,8 +317,9 @@ class CFDBViewWhatsInDB extends CFDBView {
             if ($canEdit) {
                 ?>
         <form action="" method="post">
-            <input name="form_name" type="hidden" value="<?php echo $currSelection ?>"/>
+            <input name="form_name" type="hidden" value="<?php echo $currSelectionEscaped ?>"/>
                 <input name="delete" type="hidden" value="rows"/>
+                <?php wp_nonce_field('delete-from-' . $currSelectionEscaped); ?>
                 <?php
 
             }
@@ -331,15 +356,26 @@ class CFDBViewWhatsInDB extends CFDBView {
             }
         }
         ?>
-    <div style="margin-top:1em"> <?php // Footer ?>
+        <script type="text/javascript">
+            (function ($) {
+                var url = "admin.php?page=<?php echo $plugin->getDBPageSlug() ?>&form_name=<?php echo urlencode($currSelection) ?>&submit_time=";
+                $('td[title="Submitted"] div').each(
+                        function () {
+                            var submitTime = $(this).attr('id').split(",");
+                            $(this).html('<a target="_cfdb_entry" href="' + url + submitTime[0] + '">' + $(this).html() + '</a>');
+                        })
+            })(jQuery);
+        </script>
+        <div style="margin-top:1em"> <?php // Footer ?>
         <table style="width:100%;">
             <tbody>
             <tr>
                 <td align="center" colspan="4">
                     <span style="font-size:x-small; font-style: italic;">
                         <?php _e('Did you know: This plugin captures data from both these plugins:', 'contact-form-7-to-database-extension'); ?>
-                        <a target="_cf7" href="http://wordpress.org/extend/plugins/contact-form-7/">Contact Form 7</a>
-                        <a target="_fscf" href="http://wordpress.org/extend/plugins/si-contact-form/">Fast Secure Contact Form</a>
+                        <a target="_cf7" href="http://wordpress.org/extend/plugins/contact-form-7/">Contact Form 7</a>,
+                        <a target="_fscf" href="http://wordpress.org/extend/plugins/si-contact-form/">Fast Secure Contact Form</a>,
+                        <a target="_jetpack" href="http://wordpress.org/extend/plugins/jetpack/">JetPack Contact Form</a>
                     </span>
                 </td>
             </tr>
@@ -538,6 +574,46 @@ class CFDBViewWhatsInDB extends CFDBView {
 
     protected function paginateLink($page, $label) {
         return "<a href=\"#\" onclick=\"changeDbPage('$page');\">$label</a>";
+    }
+
+    /**
+     * Create aLengthMenu javascript string for databatable
+     * @param $maxVisible
+     * @return string
+     */
+    protected function createDatatableLengthMenuJavascriptString($maxVisible) {
+        $numRowsMenu = array();
+        $found = $maxVisible == -1;
+        foreach (array(1, 2, 3, 4, 5, 10, 25, 50, 100) as $entry) {
+            if ($found) {
+                $numRowsMenu[] = $entry;
+            } else {
+                if ($maxVisible == $entry) {
+                    $found = true;
+                } else if ($maxVisible < $entry) {
+                    $numRowsMenu[] = $maxVisible;
+                    $found = true;
+                }
+                $numRowsMenu[] = $entry;
+            }
+        }
+        if (!$found) {
+            $numRowsMenu[] = $maxVisible;
+        }
+        $numRowsMenu[] = -1;
+
+        $menuJS1 = '[[';
+        $menuJS2 = ', [';
+        foreach ($numRowsMenu as $val) {
+            $menuJS1 .= $val . ',';
+            if ($val == -1) {
+                $val = '"' . __('All', 'contact-form-7-to-database-extension') . '"';
+            }
+            $menuJS2 .= $val . ',';
+        }
+        $menuJS1 = substr($menuJS1, 0, -1) . ']';
+        $menuJS2 = substr($menuJS2, 0, -1) . ']]';
+        return $menuJS1 . $menuJS2;
     }
 
 }

@@ -32,8 +32,23 @@ jQuery(document).ready(function($){
 	    header: 'Menu', // String: Specify text for "header" and show header instead of the active item
         indent: '- ', // String: Specify text for indenting sub-items
     });
-	
-		
+
+	$('.tabs ul.tabs_navigation li a').on('click',function(e){
+		console.log('ahoyyyyyyyyyyyyyyyyyy');
+		e.preventDefault();
+		if($(this).attr('href')){
+			var _filter_hash = $(this).attr('href');
+			var _filter = _filter_hash.replace('#','');
+			$('.tabs div').each(function(){
+				if($(this).attr('id') == _filter){
+					$(this).fadeIn('slow');
+				}
+				else{
+					$(this).fadeOut('slow');
+				}
+			});
+		}
+	});
 	//upcoming classes
 	//browser history
 	$(".tabs .ui-tabs-nav a").click(function(){
@@ -45,8 +60,8 @@ jQuery(document).ready(function($){
 			window.location.href = $.data(this, "href.tabs");
 	});
 	$(".ui-accordion .ui-accordion-header").click(function(){
-		$.bbq.pushState("#" + $(this).attr("id").replace("accordion-", ""));
-	});
+	    $.bbq.pushState("#" + $(this).attr("id").replace("accordion-", ""));
+   	});
 	
 	//hashchange
 	$(window).bind("hashchange", function(event){
@@ -67,7 +82,7 @@ jQuery(document).ready(function($){
 			else
 				$(".isotope_filters li:first a").addClass("selected");
 			$(".gallery").isotope(hashOptions);
-			//$(".timetable_isotope").isotope(hashOptions);
+			$(".timetable_isotope").isotope(hashOptions);
 		}
 		
 		if(location.hash.substr(1,7)=="comment")
@@ -111,7 +126,7 @@ jQuery(document).ready(function($){
 			}
 			});
 		}
-		else if(location.hash.substr(1,15)=="gallery-details")
+		else if(location.hash.substr(1,15)=="gallehttps://thethemefoundry.com/wordpress-themes/make/ry-details")
 		{
 			var detailsBlock = $(location.hash);
 			$(".gallery_item_details_list .gallery_item_details").css("display", "none");
@@ -193,7 +208,7 @@ jQuery(document).ready(function($){
 	
 	//isotope
 	$(".gallery").isotope();
-	//$(".timetable_isotope").isotope();
+	$(".timetable_isotope").isotope();
 	
 	//fancybox
 	$(".fancybox").attr("rel", "gallery");

@@ -1585,7 +1585,7 @@ margin-bottom: 250px;
 	}
 	.timetable.small
 	{
-		display: block;
+		display: block !important;
 	}
 	.timetable li {
 		margin: 0 10px;

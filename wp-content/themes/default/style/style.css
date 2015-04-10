@@ -1593,6 +1593,12 @@ margin-bottom: 250px;
 	.timetable div.value {
 		display: block !important;
 	}	
+	.tabs>div{
+		display:none;
+	}
+	.tabs>div#all-classes{
+		display:block;
+	}
 /* --- tip/tooltip/qtip --- */
 .tip
 {

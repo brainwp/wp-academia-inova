@@ -6,7 +6,8 @@ function theme_timetable($atts, $content)
 	extract(shortcode_atts(array(
 		"class" => "",
 		"classes_url" => get_home_url() . "/classes/",
-		"filter_style" => ""
+		"filter_style" => "",
+		"page_slug"    => ""
 	), $atts));
 	$classes_array = array_map('trim', explode(",", $class));
 		
@@ -46,11 +47,14 @@ function theme_timetable($atts, $content)
 		$outputSelect .= '</select>';
 	$output .= '</ul>';
 	$output .= $outputSelect;
+	global $brasa_all_classes;
+	$brasa_all_classes = $atts['page_slug'];
 	$output .= '<div id="all-classes">' . get_timetable($classes_url) . '</div>';
 	for($i=0; $i<$classes_array_count; $i++)
 		$output .= '<div id="' . $classes_array[$i] . '">' . get_timetable($classes_url, $classes_array[$i]) . '</div>';
 	$output .= '</div>[/raw]';
 	
+
 	//Reset Query
 	wp_reset_query();
 	return $output;
@@ -124,6 +128,8 @@ function get_timetable($classes_url, $class = null)
 	global $themename;
 	global $blog_id;
 	global $wpdb;
+	global $brasa_all_classes;
+
 	$output = "";
 	$query = "SELECT TIME_FORMAT(t1.start, '%H:%i') AS start, TIME_FORMAT(t1.end, '%H:%i') AS end, t2.post_title AS class_title, t2.post_name AS post_name, t3.post_title, t3.menu_order FROM wp_" . $blog_id . "_class_hours AS t1 
 			LEFT JOIN {$wpdb->posts} AS t2 ON t1.class_id=t2.ID 
@@ -142,6 +148,10 @@ function get_timetable($classes_url, $class = null)
 	$class_hours_tt = array();
 	foreach($class_hours as $class_hour)
 	{
+		$pos = strpos($class_hour->post_name, $brasa_all_classes);
+		if(isset($brasa_all_classes) && !empty($brasa_all_classes) && $class === null && $pos === false){
+			continue;
+		}
 		$class_hours_tt[($class_hour->menu_order>1 ? $class_hour->menu_order-1 : 7)][] = array(
 			"start" => $class_hour->start,
 			"end" => $class_hour->end,

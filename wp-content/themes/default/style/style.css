@@ -1590,6 +1590,9 @@ margin-bottom: 250px;
 	.timetable li {
 		margin: 0 10px;
 	}	
+	.timetable div.value {
+		display: block !important;
+	}	
 /* --- tip/tooltip/qtip --- */
 .tip
 {
